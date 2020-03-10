@@ -1,0 +1,4 @@
+﻿cl : línea de comandos warning D9035: La opción 'Gm' está desusada y se quitará en próximas versiones
+  Pang.cpp
+Pang.obj : warning LNK4075: se omite '/EDITANDCONTINUE' debido a la especificación '/INCREMENTAL:NO'
+  Pang.vcxproj -> D:\ALVARO\3º ELECTRO 19_20\2º SEMESTRE\INFORMATICA INDUSTRIAL\LABORATORIO\P1\EJERICIOS CASA\.\Debug\Pang.exe
