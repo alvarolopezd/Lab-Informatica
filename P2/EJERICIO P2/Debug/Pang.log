@@ -1,4 +1,12 @@
 ﻿cl : línea de comandos warning D9035: La opción 'Gm' está desusada y se quitará en próximas versiones
+  octaedro.cpp
+  mundo.cpp
+  Generando código...
+  Compilando...
   Pang.cpp
+  Generando código...
+  Omitiendo... (no se detectaron cambios relevantes)
+  toroide.cpp
+  esfera.cpp
 esfera.obj : warning LNK4075: se omite '/EDITANDCONTINUE' debido a la especificación '/INCREMENTAL:NO'
-  Pang.vcxproj -> D:\ALVARO\3º ELECTRO 19_20\2º SEMESTRE\INFORMATICA INDUSTRIAL\LABORATORIO\P2\EJERICIOS CASA FINAL\.\Debug\Pang.exe
+  Pang.vcxproj -> C:\Users\Alvaro\AppData\Roaming\SPB_Data\Lab-Informatica\P2\EJERICIO P2\.\Debug\Pang.exe

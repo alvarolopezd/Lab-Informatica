@@ -5,6 +5,10 @@
 #include "toroide.h"
 #include "esfera.h"
 
+esfera e;
+toroide t;
+octaedro o;
+mundo camara;
 
 void OnDraw(void); 
 void OnTimer(int value); 
