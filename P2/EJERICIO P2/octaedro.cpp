@@ -1,34 +1,34 @@
 #include "octaedro.h"
 #include "glut.h"
 
-void octaedro::SetPos(float _posX, float _posY, float _posZ)
+void Octaedro::SetPos(float _posX, float _posY, float _posZ)
 {
 	posX = _posX;
 	posY = _posY;
 	posZ = _posZ;
 }
 
-void octaedro::arriba()
+void Octaedro::arriba()
 {
 	posY += 0.5;
 }
 
-void octaedro::abajo()
+void Octaedro::abajo()
 {
 	posY -= 0.5;
 }
 
-void octaedro::derecha()
+void Octaedro::derecha()
 {
 	posX += 0.5;
 }
 
-void octaedro::izquierda()
+void Octaedro::izquierda()
 {
 	posX -= 0.5;
 }
 
-void octaedro::Drawoctaedro()
+void Octaedro::Drawoctaedro()
 {
 	glColor3ub(255, 255, 0);  // AMARILLO
 	glTranslatef(posX, posY, posZ);    // POSICION

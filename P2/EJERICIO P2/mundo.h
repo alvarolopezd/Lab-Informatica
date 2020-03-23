@@ -1,14 +1,21 @@
-#include "glut.h"
+#pragma once
+#include "esfera.h"
+#include "toroide.h"
+#include "octaedro.h"
 
-class mundo
+class Mundo
 {
 private:
-	float x = 0, y = 10, z = 30;
+	float x, y, z;
+
+	Esfera e;
+	Toroide t;
+	Octaedro o;
 public:
-	void aumentaX();
-	void disminuyeX();
-	void aumentaZ();
-	void disminuyeZ();
+	void InicioMundo(float _x, float _y, float _z);
+	void PintarMundo();
+	void AccionesMundo(unsigned char _key);
+	void MuevePorTiempo();
 	void LookAt();
 };
 

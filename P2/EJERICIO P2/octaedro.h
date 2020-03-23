@@ -1,6 +1,7 @@
-#include "glut.h"
+#pragma once
 
-class octaedro
+
+class Octaedro
 {
 private:
 	float posX;

@@ -1,22 +1,20 @@
-#include "glut.h"
 #include <math.h>
 #include "mundo.h"
 #include "octaedro.h"
 #include "toroide.h"
+#include "glut.h"
 #include "esfera.h"
 
-esfera e;
-toroide t;
-octaedro o;
-mundo camara;
+// Creo objeto m que pertenece a la clase mundo
+Mundo m;
 
 void OnDraw(void); 
 void OnTimer(int value); 
 void OnKeyboardDown(unsigned char key, int x, int y);	
 
-unsigned char colorRojoCubo = 255; //Creo que esto se pone para que el color no supere el numero 255
-unsigned char colorVerdeCubo = 255; 
-unsigned char colorAzulCubo = 255;
+/*unsigned char colorRojoCubo = 255; //Creo que esto se pone para que el color no supere el numero 255
+unsigned char colorVerdeCubo = 255;
+unsigned char colorAzulCubo = 255;*/
 
 int main(int argc,char* argv[])
 {
@@ -26,7 +24,7 @@ int main(int argc,char* argv[])
 	glutInit(&argc, argv);
 	glutInitWindowSize(800,600);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
-	glutCreateWindow("Figuritas_P1_T2"); ///NOMBRE EL NOMBRE DEL JUEGO
+	glutCreateWindow("MUNDO ALVARO"); ///NOMBRE EL NOMBRE DEL JUEGO
 
 	//habilitar luces y definir perspectiva
 	glEnable(GL_LIGHT0);
@@ -41,12 +39,9 @@ int main(int argc,char* argv[])
 	glutTimerFunc(25,OnTimer,0);//le decimos que dentro de 25ms llame 1 vez a la funcion OnTimer() /// Hacer que el objeto se mueva cada 25 ms
 	glutKeyboardFunc(OnKeyboardDown); ///Detecta el teclado
 	
-	o.SetPos(0, 0, 0);
-
-	e.SetRadio(2);
-	e.SetPos(-7, 3, 0);
-	e.SetColor(255, 255, 255);
-
+	//Inicializo mundo
+	m.InicioMundo(0, 10, 30);
+	
 	//pasarle el control a GLUT,que llamara a los callbacks
 	glutMainLoop();	
 
@@ -63,16 +58,11 @@ void OnDraw(void) /// Funcion para dibujar
 	
 
 	/// Cambiar el punto de vista, para saber de donde quieres ver el juego
-	camara.LookAt();	
-			
-    // ESFERAS
-	e.Drawesfera();
+	m.LookAt();	
 	
-	// TOROIDE
-	t.Drawtoroide();
 
-		// OCTAEDRO
-	o.Drawoctaedro();
+	// Pintar mundo
+	m.PintarMundo();
 	
 
 	//no borrar esta linea ni poner nada despues
@@ -81,26 +71,9 @@ void OnDraw(void) /// Funcion para dibujar
 }
 void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 {
-
-	// MOVIMIENTO CUBO
-	if (key == 'w')		o.arriba();
-	if (key == 's')		o.abajo();
-	if (key == 'd')		o.derecha();
-	if (key == 'a')		o.izquierda();
-	
-	if (key == '1') 	e.SetColor(255, 0, 0); // Rojo	
-	if (key == '2') 	e.SetColor(0, 255, 0); // Verde
-	if (key == '3') 	e.SetColor(0, 0, 255); // Azul
-	
-	if (key == '+')		e.aumenta();
-	if (key == '-')		e.disminuye();	
-	
-	if (key == '4')		camara.disminuyeX();
-	if (key == '6')		camara.aumentaX();
-	if (key == '7')		camara.disminuyeZ();
-	if (key == '9')		camara.aumentaZ();
-
-	
+	//Declaro todas las acciones que se llevan a cabo en mi mundo
+	m.AccionesMundo(key);
+	   	 	
 	// Esta linea no se borra, hace que cuando le de a algo del tecladome ejecute de nuevo el void main,
 	// pero con el cambio efectuado tras el evento del teclado en la variable cambiada
 	glutPostRedisplay();
@@ -108,7 +81,8 @@ void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 
 void OnTimer(int value) /// Efectua el main con los cambios que haya dentro del OnTimer 
 {
-	t.mueve();
+	//Defino las acciones en mi mundo que tienen en cuenta el tiempo
+	m.MuevePorTiempo();
 	
 
 	glutTimerFunc(25, OnTimer, 0);

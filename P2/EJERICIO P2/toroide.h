@@ -1,6 +1,6 @@
-#include "glut.h"
+#pragma once
 
-class toroide
+class Toroide
 {
 private:
 	float radioInt = 2;

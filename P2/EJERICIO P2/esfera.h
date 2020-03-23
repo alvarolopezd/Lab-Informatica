@@ -1,6 +1,6 @@
-#include "glut.h"
+#pragma once
 
-class esfera
+class Esfera
 {
 private:
 	float radius;

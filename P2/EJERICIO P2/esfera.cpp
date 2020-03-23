@@ -1,36 +1,36 @@
 #include "esfera.h"
 #include "glut.h"
 
-void esfera::SetColor(int _colorX, int _colorY, int _colorZ)
+void Esfera::SetColor(int _colorX, int _colorY, int _colorZ)
 {
 	colorX = _colorX;
 	colorY = _colorY;
 	colorZ = _colorZ;
 }
 
-void esfera::SetRadio(float _radius)
+void Esfera::SetRadio(float _radius)
 {
 	radius = _radius;
 }
 
-void esfera::SetPos(float _posX, float _posY, float _posZ)
+void Esfera::SetPos(float _posX, float _posY, float _posZ)
 {
 	posX = _posX;
 	posY = _posY;
 	posZ = _posZ;
 }
 
-void esfera::aumenta()
+void Esfera::aumenta()
 {
 	radius += 0.25;
 }
 
-void esfera::disminuye()
+void Esfera::disminuye()
 {
 	radius -= 0.25;
 }
 
-void esfera::Drawesfera()
+void Esfera::Drawesfera()
 {
 	glColor3ub(colorX, colorY, colorZ);
 
