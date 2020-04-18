@@ -36,6 +36,11 @@ void Esfera::SetColor(unsigned char _rojo, unsigned char _verde, unsigned char _
 	azul = _azul;
 }
 
+void Esfera::SetVel(float _xvel, float _yvel)
+{
+	velocidad.SetCoordenadas(_xvel, _yvel);
+}
+
 
 
 float Esfera::GetXPos()
@@ -120,10 +125,14 @@ void Esfera::Dibuja()
 	glTranslatef(-posicion.GetX(), -posicion.GetY(), 0);
 }
 
-void Esfera::Mueve(unsigned char key)
+void Esfera::Mueve(float t)
 {
-	if (key == '+')
+	posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
+	velocidad = velocidad + aceleracion * t;
+}
+
+
+/*if (key == '+')
 		radius = radius + 0.1;
 	if (key == '-')
-		radius = radius - 0.1;
-}
+		radius = radius - 0.1;*/

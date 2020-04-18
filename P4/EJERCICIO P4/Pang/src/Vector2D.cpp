@@ -3,7 +3,7 @@
 
 Vector2D::Vector2D()
 {
-	x = 0;
+	x =0;
 	y = 0;
 }
 
@@ -64,8 +64,10 @@ float Vector2D::operator * (Vector2D& v)
 	res = (GetX() * v.GetX()) + (GetY() * v.GetY());
 	return res;
 }
+
 Vector2D Vector2D::operator * (float n)
 {
 	Vector2D res;
 	res.SetCoordenadas(GetX() * n, GetY() * n);
+	return res;
 }

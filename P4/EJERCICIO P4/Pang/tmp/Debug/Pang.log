@@ -1,2 +1,3 @@
-﻿  Caja.cpp
-  Pang.vcxproj -> D:\ALVARO\3º ELECTRO 19_20\2º SEMESTRE\INFORMATICA INDUSTRIAL\LABORATORIO\Lab-Informatica\P4\EJERCICIO P4\Pang\bin\Pang.exe
+﻿  Mundo.cpp
+D:\ALVARO\3º ELECTRO 19_20\2º SEMESTRE\INFORMATICA INDUSTRIAL\LABORATORIO\Lab-Informatica\P4\EJERCICIO P4\Pang\src\Mundo.cpp(72,40): error C2664: 'void Interaccion::rebote(Hombre &,Caja)': el argumento 1 no puede convertirse de 'Esfera' a 'Hombre &'
+D:\ALVARO\3º ELECTRO 19_20\2º SEMESTRE\INFORMATICA INDUSTRIAL\LABORATORIO\Lab-Informatica\P4\EJERCICIO P4\Pang\src\Interaccion.h(14,14): message : vea la declaración de 'Interaccion::rebote'

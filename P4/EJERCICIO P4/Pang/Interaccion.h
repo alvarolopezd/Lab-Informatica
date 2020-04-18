@@ -12,8 +12,10 @@ private:
 public:
 	Interaccion();
 	virtual ~Interaccion();
-	static void rebote(Hombre& h, Caja c);
+	static void rebote(Hombre &h, Caja c);
 	static bool rebote(Esfera& e, Pared p);
+	//static bool rebote(Esfera& e, Caja c);
+	bool rebote(Esfera& esfera1, Esfera& esfera2);
 };
 
 

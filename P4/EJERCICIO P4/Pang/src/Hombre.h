@@ -15,16 +15,19 @@ public:
 	void SetColor(unsigned char _rojo, unsigned char _verde, unsigned char _azul);
 	float GetXPos();
 	float GetYPos();
+	Vector2D GetPos();
 	float GetXVel();
 	float GetYVel();
+	Vector2D GetVel();
 	float GetXAcel();
 	float GetYAcel();
+	Vector2D GetAcel();
 	float GetSize();
 	unsigned char GetRojo();
 	unsigned char GetVerde();
 	unsigned char GetAzul();
 	void Dibuja();
-	void Mueve(unsigned char key);
+	void Mueve(unsigned char key, float t);
 };
 
 

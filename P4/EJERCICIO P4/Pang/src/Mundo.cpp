@@ -1,4 +1,5 @@
 #include "Mundo.h"
+#include "Interaccion.h"
 #include "glut.h"
 #include <math.h>
 
@@ -9,11 +10,14 @@ void Mundo::Inicializa()
 	y_ojo = 11;
 	z_ojo = 22;
 
-	esfera.SetAtributos(0, 5, 0, 0, 0, 0, 1, 50, 50);
+	esfera.SetAtributos(2, 4, 5, 15, 0, 0, 1, 50, 50);
 	esfera.SetColor(255, 0, 0);
+
+	esfera2.SetAtributos(-2, 4, -5, 15, 0, 0, 1.5, 50, 50);
+	esfera2.SetColor(255, 255, 0);
 	
 	caja.Inicializa();
-	plataforma.SetAtributos(-3.0f, -3.0f, 3.0f, -3.0f, 3.0f, 3.0f, -3.0f, 3.0f, 7, 7);
+	plataforma.SetAtributos(-3.0f, -3.0f, 3.0f, 3.0f, 7, 7);
 	plataforma.SetColor(255, 255, 255);
 	
 	hombre.SetAtributos(0, 0, 0, 0, 0, 0, 2);
@@ -35,9 +39,10 @@ void Mundo::Dibuja()
 
 
 	esfera.Dibuja();
+	esfera2.Dibuja();
 	
 	caja.Dibuja();
-	plataforma.Dibuja();
+	plataforma.DibujaS();
 	
 	hombre.Dibuja();
 
@@ -49,30 +54,36 @@ void Mundo::Dibuja()
 
 void Mundo::RotarOjo()
 {
-	float dist=sqrt(x_ojo*x_ojo+z_ojo*z_ojo);
+	float dist=sqrtf(x_ojo*x_ojo+z_ojo*z_ojo);
 	float ang=atan2(z_ojo,x_ojo);
 	ang+=0.05f;
 	x_ojo=dist*cos(ang);
 	z_ojo=dist*sin(ang);
 }
 
+void Mundo::Mueve()
+{
+	
+	disparo.Mueve(0.025f);	
+	esfera.Mueve(0.025f);
+	esfera2.Mueve(0.025f);
+	bonus.Mueve(0.025f);
+	Interaccion::rebote(hombre, caja);
+	Interaccion::rebote(esfera, plataforma);
+	Interaccion::rebote(esfera, esfera2);
+	
+}
 
 void Mundo::Tecla(unsigned char key)
 {
-	hombre.Mueve(key);
-	esfera.Mueve(key);
-	Interaccion::rebote(hombre, caja);
-	Interaccion::rebote(esfera, caja);
-
-
-}
-
-
-void Mundo::Mueve(int value)
-{
+	hombre.Mueve(key, 0.025f);
 	
-	disparo.Mueve(value);
+	
 }
+
+
+
+
 
 
 
