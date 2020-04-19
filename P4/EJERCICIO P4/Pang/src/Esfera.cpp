@@ -41,6 +41,16 @@ void Esfera::SetVel(float _xvel, float _yvel)
 	velocidad.SetCoordenadas(_xvel, _yvel);
 }
 
+void Esfera::SetVel(Vector2D v)
+{
+	velocidad = v;
+}
+
+void Esfera::SetPos(Vector2D p)
+{
+	posicion = p;
+}
+
 
 
 float Esfera::GetXPos()
@@ -53,9 +63,7 @@ float Esfera::GetYPos()
 }
 Vector2D Esfera::GetPos()
 {
-	Vector2D res;
-	res.SetCoordenadas(GetXPos(), GetYPos());
-	return res;
+	return posicion;
 }
 
 
@@ -69,9 +77,7 @@ float Esfera::GetYVel()
 }
 Vector2D Esfera::GetVel()
 {
-	Vector2D res;
-	res.SetCoordenadas(GetXVel(), GetYVel());
-	return res;
+	return velocidad;
 }
 
 
@@ -85,9 +91,7 @@ float Esfera::GetYAcel()
 }
 Vector2D Esfera::GetAcel()
 {
-	Vector2D res;
-	res.SetCoordenadas(GetXAcel(), GetYAcel());
-	return res;
+	return aceleracion;
 }
 
 

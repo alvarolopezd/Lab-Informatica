@@ -6,31 +6,30 @@
 class Pared
 {
 private:
-	Vector2D p1, p2, p3, p4;
+	Vector2D limite1, limite2;
 	unsigned char rojo, verde, azul;
-	float alturamin,alturamax;
+	float alturamin, alturamax;
+	friend class Interaccion;
 public:
 	Pared();
 	virtual ~Pared();
-	void SetAtributos(float _xp1, float _yp1, float _xp2, float _yp2, float _xp3, float _yp3, float _xp4, float _yp4, float _alturamin, float _alturamax);
+	void SetAtributos(float _xlim1, float _ylim1, float _xlim2, float _ylim2, float _alturamin, float _alturamax);
 	void SetColor(unsigned char _rojo, unsigned char _verde, unsigned char _azul);
-	float GetXP1();
-	float GetYP1();
-	float GetXP2();
-	float GetYP2();
-	float GetXP3();
-	float GetYP3();
-	float GetXP4();
-	float GetYP4();
+	float GetXLim1();
+	float GetYLim1();
+	float GetXLim2();
+	float GetYLim2();
+
 	float GetAlturaMin();
 	float GetAlturaMax();
 	unsigned char GetRojo();
 	unsigned char GetVerde();
 	unsigned char GetAzul();
-	void Dibuja();
+	void DibujaS();
+	void DibujaL();
+
 	float distancia(Vector2D punto, Vector2D* direccion = 0);
 };
-
 
 
 

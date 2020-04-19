@@ -14,11 +14,9 @@ private:
 	float z_ojo;
 	Esfera esfera, esfera2;
 	Caja caja;
-	Pared plataforma;
 	Hombre hombre;
 	Disparo disparo;
-	Bonus bonus;
-	friend class Interaccion;
+	Bonus bonus;	
 public:
 	void Inicializa();
 	void Dibuja();

@@ -50,7 +50,7 @@ void OnDraw(void)
 	glLoadIdentity();
 	
 	mundo.Dibuja();
-	mundo.Mueve();
+
 
 	//no borrar esta linea ni poner nada despues
 	glutSwapBuffers();
@@ -67,7 +67,7 @@ void OnTimer(int value)
 {
 //poner aqui el código de animacion
 	
-
+	mundo.Mueve();
 	//no borrar estas lineas
 	glutTimerFunc(25,OnTimer,0);
 	glutPostRedisplay();

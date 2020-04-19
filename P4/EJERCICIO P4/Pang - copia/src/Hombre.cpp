@@ -42,6 +42,13 @@ float Hombre::GetYPos()
 {
 	return posicion.GetY();
 }
+Vector2D Hombre::GetPos()
+{
+	Vector2D res;
+	res.SetCoordenadas(GetXPos(), GetYPos());
+	return res;
+}
+
 float Hombre::GetXVel()
 {
 	return velocidad.GetX();
@@ -50,6 +57,13 @@ float Hombre::GetYVel()
 {
 	return velocidad.GetY();
 }
+Vector2D Hombre::GetVel()
+{
+	Vector2D res;
+	res.SetCoordenadas(GetXPos(), GetYPos());
+	return res;
+}
+
 float Hombre::GetXAcel()
 {
 	return aceleracion.GetX();
@@ -57,6 +71,12 @@ float Hombre::GetXAcel()
 float Hombre::GetYAcel()
 {
 	return aceleracion.GetY();
+}
+Vector2D Hombre::GetAcel()
+{
+	Vector2D res;
+	res.SetCoordenadas(GetXPos(), GetYPos());
+	return res;
 }
 
 
@@ -88,17 +108,20 @@ void Hombre::Dibuja()
 	glTranslatef(-posicion.GetX(), -posicion.GetY(), 0);
 }
 
-void Hombre::Mueve(unsigned char key)
+void Hombre::Mueve(unsigned char key, float t)
 {
 	if (key == 'd')
 	{
-		posicion.SetCoordenadas(posicion.GetX() + 0.25, posicion.GetY());
+		velocidad.SetCoordenadas(5.0f, 0.0f);
+		posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
+
 	}
 	if (key == 'a')
 	{
-		posicion.SetCoordenadas(posicion.GetX() - 0.25, posicion.GetY());
+		velocidad.SetCoordenadas(-5.0f, 0.0f);
+		posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
 	}
-		
+
 
 
 }
@@ -112,3 +135,18 @@ void Hombre::Mueve(unsigned char key)
 	{
 		posicion.SetCoordenadas(posicion.GetX() - 0.25, posicion.GetY());
 	}*/
+
+
+
+
+	/*	if (key == 'd')
+		{
+			velocidad.SetCoordenadas(5.0f, 0.0f);
+			posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
+
+		}
+		if (key == 'a')
+		{
+			velocidad.SetCoordenadas(-5.0f, 0.0f);
+			posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
+		}*/

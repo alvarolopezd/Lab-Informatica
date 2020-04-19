@@ -1,36 +1,60 @@
+
 #include "Caja.h"
-
-
 
 
 void Caja::Inicializa()
 {
-	suelo.SetAtributos(-5.0f, -5.0f, 5.0f, 5.0f, 0, 0);
-	suelo.SetColor(0, 225, 0);
+	/*suelo.SetAtributos(-5.0f, -5.0f, 5.0f, 5.0f, 0, 0);
+	
 	techo.SetAtributos(-5.0f, -5.0f, 5.0f, 5.0f, 10, 10);
-	techo.SetColor(0, 225, 0);
+
 	pared_izq.SetAtributos(-5.0f, -5.0f, -5.0f, 5.0f, 0, 10);
-	pared_izq.SetColor(0, 225, 0);
+	
 	pared_dcha.SetAtributos(5.0f, -5.0f, 5.0f, 5.0f, 0, 10);
-	pared_dcha.SetColor(0, 225, 0);
+	pared_dcha.SetColor(0, 225, 0);*/
+	
+	pared_izq.SetColor(0, 225, 0);
+	pared_izq.SetAtributos(-10, 0, -10, 15);
+	pared_dcha.SetColor(0, 225, 0); 
+	pared_dcha.SetAtributos(10, 0, 10, 15);
+	techo.SetColor(0, 225, 250);
+	techo.SetAtributos(10, 15, -10, 15);
+	suelo.SetColor(0, 225, 250);
+	suelo.SetAtributos(-10, 0, 10, 0);
+	plataforma.SetColor(255, 255, 255);
+	plataforma.SetAtributos(-2.5, 7, 2.5, 7);
 }
 
 
 void Caja::Dibuja()
 {
-	suelo.DibujaS();
-	techo.DibujaS();
-	pared_dcha.DibujaL();
-	pared_izq.DibujaL();
+	suelo.Dibuja();
+	techo.Dibuja();
+	pared_dcha.Dibuja();
+	pared_izq.Dibuja();
+	plataforma.Dibuja();
 }
 
-float Caja::XMaxSuelo()
-{
-	float XMax = suelo.GetXLim2();
-	return XMax;
+
+
+Pared Caja::GetSuelo() {
+	return suelo;
 }
-float Caja::XMinSuelo()
-{
-	float XMin = suelo.GetXLim1();
-	return XMin;
+
+Pared Caja::GetParedIzq() {
+	return pared_izq;
 }
+
+Pared Caja::GetParedDer() {
+	return pared_dcha;
+}
+
+Pared Caja::GetTecho() {
+	return techo;
+}
+
+Pared Caja::GetPlataforma()
+{
+	return plataforma;
+}
+

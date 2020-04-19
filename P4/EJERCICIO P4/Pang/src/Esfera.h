@@ -15,6 +15,8 @@ public:
 	void SetAtributos(float _xpos, float _ypos, float _xvel, float _yvel, float _acel, float _yacel, float _radius, float _slices, float _stacks);
 	void SetColor(unsigned char _rojo, unsigned char _verde, unsigned char _azul);
 	void SetVel(float _xvel, float _yvel);
+	void SetVel(Vector2D v);
+	void SetPos(Vector2D p);
 	float GetXPos();
 	float GetYPos();
 	Vector2D GetPos();

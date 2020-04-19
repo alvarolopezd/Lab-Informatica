@@ -8,10 +8,12 @@ private:
 	Vector2D posicion, velocidad, aceleracion;
 	float size;
 	unsigned char rojo, verde, azul;
+	friend class Interaccion;
 public:
 	Hombre();
 	virtual ~Hombre();
 	void SetAtributos(float _xpos, float _ypos, float _xvel, float _yvel, float _acel, float _yacel, float _size);
+	void SetVel(float _xvel, float _yvel);
 	void SetColor(unsigned char _rojo, unsigned char _verde, unsigned char _azul);
 	float GetXPos();
 	float GetYPos();
@@ -27,7 +29,7 @@ public:
 	unsigned char GetVerde();
 	unsigned char GetAzul();
 	void Dibuja();
-	void Mueve(unsigned char key, float t);
+	void Mueve(float t);
 };
 
 

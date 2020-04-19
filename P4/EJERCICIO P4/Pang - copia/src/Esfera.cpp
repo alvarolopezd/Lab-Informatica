@@ -20,7 +20,7 @@ Esfera::~Esfera()
 
 
 void Esfera::SetAtributos(float _xpos, float _ypos, float _xvel, float _yvel, float _xacel, float _yacel, float _radius, float _slices, float _stacks)
-{	
+{
 	posicion.SetCoordenadas(_xpos, _ypos);
 	velocidad.SetCoordenadas(_xvel, _yvel);
 	aceleracion.SetCoordenadas(_xacel, _yacel);
@@ -34,6 +34,11 @@ void Esfera::SetColor(unsigned char _rojo, unsigned char _verde, unsigned char _
 	rojo = _rojo;
 	verde = _verde;
 	azul = _azul;
+}
+
+void Esfera::SetVel(float _xvel, float _yvel)
+{
+	velocidad.SetCoordenadas(_xvel, _yvel);
 }
 
 
@@ -120,10 +125,14 @@ void Esfera::Dibuja()
 	glTranslatef(-posicion.GetX(), -posicion.GetY(), 0);
 }
 
-void Esfera::Mueve(unsigned char key)
+void Esfera::Mueve(float t)
 {
-	if (key == '+')
+	posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
+	velocidad = velocidad + aceleracion * t;
+}
+
+
+/*if (key == '+')
 		radius = radius + 0.1;
 	if (key == '-')
-		radius = radius - 0.1;
-}
+		radius = radius - 0.1;*/

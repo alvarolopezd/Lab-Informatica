@@ -44,14 +44,14 @@ Vector2D Vector2D::Unitario()
 	return res;
 }
 
-Vector2D Vector2D::operator - (Vector2D &v)
+Vector2D Vector2D::operator - (Vector2D& v)
 {
 	Vector2D res;
 	res.SetCoordenadas(GetX() - v.GetX(), GetY() - v.GetY());
 	return res;
 }
 
-Vector2D Vector2D::operator + (Vector2D &v)
+Vector2D Vector2D::operator + (Vector2D& v)
 {
 	Vector2D res;
 	res.SetCoordenadas(GetX() + v.GetX(), GetY() + v.GetY());
@@ -64,8 +64,10 @@ float Vector2D::operator * (Vector2D& v)
 	res = (GetX() * v.GetX()) + (GetY() * v.GetY());
 	return res;
 }
+
 Vector2D Vector2D::operator * (float n)
 {
 	Vector2D res;
 	res.SetCoordenadas(GetX() * n, GetY() * n);
+	return res;
 }

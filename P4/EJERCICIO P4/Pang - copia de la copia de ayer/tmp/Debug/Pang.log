@@ -1,0 +1,4 @@
+﻿  Interaccion.cpp
+  Vector2D.cpp
+  Generando código...
+D:\ALVARO\3º ELECTRO 19_20\2º SEMESTRE\INFORMATICA INDUSTRIAL\LABORATORIO\Lab-Informatica\P4\EJERCICIO P4\Pang - copia de la copia de ayer\src\Vector2D.cpp(71): error C4716: 'Vector2D::operator*': debe devolver un valor

@@ -7,6 +7,13 @@ Vector2D::Vector2D()
 	y = 0;
 }
 
+Vector2D::Vector2D(float _x, float _y)
+{
+	x = _x;
+	y = _y;
+
+}
+
 void Vector2D::SetCoordenadas(float _x, float _y)
 {
 	x = _x;
@@ -25,21 +32,21 @@ float Vector2D::GetY()
 
 float Vector2D::modulo()
 {
-	return (float)sqrt((GetX() * GetX()) + (GetY() * GetY()));
+	return (float)sqrt((x * x) + (y * y));
 }
 
 float Vector2D::argumento()
 {
-	return (float)atan2(GetY(), GetX());
+	return (float)atan2(y, x);
 }
 
 Vector2D Vector2D::Unitario()
 {
-	Vector2D res;
+	Vector2D res(x,y);
 	float mod = modulo();
-	if (mod < 0.00001)
+	if (mod > 0.00001)
 	{
-		res.SetCoordenadas(GetX() / mod, GetY() / mod);
+		res.SetCoordenadas(res.GetX() / mod, res.GetY() / mod);
 	}
 	return res;
 }
@@ -47,27 +54,27 @@ Vector2D Vector2D::Unitario()
 Vector2D Vector2D::operator - (Vector2D &v)
 {
 	Vector2D res;
-	res.SetCoordenadas(GetX() - v.GetX(), GetY() - v.GetY());
+	res.SetCoordenadas(x - v.GetX(), y - v.GetY());
 	return res;
 }
 
 Vector2D Vector2D::operator + (Vector2D &v)
 {
 	Vector2D res;
-	res.SetCoordenadas(GetX() + v.GetX(), GetY() + v.GetY());
+	res.SetCoordenadas(x + v.GetX(), y + v.GetY());
 	return res;
 }
 
 float Vector2D::operator * (Vector2D& v)
 {
 	float res;
-	res = (GetX() * v.GetX()) + (GetY() * v.GetY());
+	res = (x * v.GetX()) + (y * v.GetY());
 	return res;
 }
 
 Vector2D Vector2D::operator * (float n)
 {
 	Vector2D res;
-	res.SetCoordenadas(GetX() * n, GetY() * n);
+	res.SetCoordenadas(x * n, y* n);
 	return res;
 }

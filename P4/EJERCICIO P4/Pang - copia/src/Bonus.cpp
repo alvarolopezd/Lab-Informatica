@@ -1,5 +1,6 @@
 #include "Bonus.h"
 #include <cstdlib>
+
 #include "glut.h"
 
 
@@ -33,6 +34,13 @@ float Bonus::GetYPos()
 {
 	return posicion.GetY();
 }
+Vector2D Bonus::GetPos()
+{
+	Vector2D res;
+	res.SetCoordenadas(GetXPos(), GetYPos());
+	return res;
+}
+
 float Bonus::GetXVel()
 {
 	return velocidad.GetX();
@@ -41,6 +49,13 @@ float Bonus::GetYVel()
 {
 	return velocidad.GetY();
 }
+Vector2D Bonus::GetVel()
+{
+	Vector2D res;
+	res.SetCoordenadas(GetXVel(), GetYVel());
+	return res;
+}
+
 float Bonus::GetXAcel()
 {
 	return aceleracion.GetX();
@@ -48,6 +63,12 @@ float Bonus::GetXAcel()
 float Bonus::GetYAcel()
 {
 	return aceleracion.GetY();
+}
+Vector2D Bonus::GetAcel()
+{
+	Vector2D res;
+	res.SetCoordenadas(GetXAcel(), GetYAcel());
+	return res;
 }
 
 
@@ -64,7 +85,13 @@ void Bonus::Dibuja()
 	glTranslatef(posicion.GetX(), posicion.GetY(), 0);
 	glRotatef(30, 1, 1, 1);
 	glColor3f(rand() / (float)RAND_MAX, rand() / (float)RAND_MAX,
-			rand() / (float)RAND_MAX);
+		rand() / (float)RAND_MAX);
 	glutSolidCube(GetSize());
 	glPopMatrix();
+}
+
+void Bonus::Mueve(float t)
+{
+	posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
+	velocidad = velocidad + aceleracion * t;
 }

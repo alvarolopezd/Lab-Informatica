@@ -7,6 +7,8 @@ Disparo::Disparo()
 	velocidad.SetCoordenadas(0, 0);
 	aceleracion.SetCoordenadas(0, 0);
 	radius = 0;
+	slices = 0;
+	stacks = 0;
 	rojo = 0;
 	verde = 0;
 	azul = 0;

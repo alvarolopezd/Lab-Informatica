@@ -27,3 +27,4 @@ public:
 	void Dibuja();
 	void Mueve(int value);
 };
+

@@ -1,4 +1,6 @@
+
 #include "Disparo.h"
+
 #include "glut.h"
 
 Disparo::Disparo()
@@ -7,6 +9,8 @@ Disparo::Disparo()
 	velocidad.SetCoordenadas(0, 0);
 	aceleracion.SetCoordenadas(0, 0);
 	radius = 0;
+	slices = 0;
+	stacks = 0;
 	rojo = 0;
 	verde = 0;
 	azul = 0;
@@ -110,7 +114,7 @@ void Disparo::Dibuja()
 void Disparo::Mueve(int value)
 {
 	int i;
-	for(i=0;i<=posicion.GetY();i++)
-		posicion.SetCoordenadas(posicion.GetX(), posicion.GetY()+0.25);
+	for (i = 0; i <= posicion.GetY(); i++)
+		posicion.SetCoordenadas(posicion.GetX(), posicion.GetY() + 0.25);
 
 }

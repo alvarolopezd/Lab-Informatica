@@ -1,2 +1,2 @@
-﻿  Caja.cpp
-  Pang.vcxproj -> D:\ALVARO\3º ELECTRO 19_20\2º SEMESTRE\INFORMATICA INDUSTRIAL\LABORATORIO\Lab-Informatica\P4\EJERCICIO P4\Pang\bin\Pang.exe
+﻿Pang.obj : error LNK2019: símbolo externo "public: void __thiscall Mundo::Mueve(int)" (?Mueve@Mundo@@QAEXH@Z) sin resolver al que se hace referencia en la función "void __cdecl OnTimer(int)" (?OnTimer@@YAXH@Z)
+D:\ALVARO\3º ELECTRO 19_20\2º SEMESTRE\INFORMATICA INDUSTRIAL\LABORATORIO\Lab-Informatica\P4\EJERCICIO P4\Pang - copia\bin\Pang.exe : fatal error LNK1120: 1 externos sin resolver

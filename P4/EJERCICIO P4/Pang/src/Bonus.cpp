@@ -1,5 +1,5 @@
 #include "Bonus.h"
-#include <cstdlib>
+#include <stdlib.h>
 #include "glut.h"
 
 

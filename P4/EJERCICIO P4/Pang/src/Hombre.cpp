@@ -25,6 +25,11 @@ void Hombre::SetAtributos(float _xpos, float _ypos, float _xvel, float _yvel, fl
 	size = _size;
 }
 
+void Hombre::SetVel(float _xvel, float _yvel)
+{
+	velocidad.SetCoordenadas(_xvel, _yvel);
+}
+
 void Hombre::SetColor(unsigned char _rojo, unsigned char _verde, unsigned char _azul)
 {
 	rojo = _rojo;
@@ -108,21 +113,10 @@ void Hombre::Dibuja()
 	glTranslatef(-posicion.GetX(), -posicion.GetY(), 0);
 }
 
-void Hombre::Mueve(unsigned char key, float t)
+void Hombre::Mueve(float t)
 {
-	if (key == 'd')
-	{
-		velocidad.SetCoordenadas(5.0f, 0.0f);
-		posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
-		
-	}
-	if (key == 'a')
-	{
-		velocidad.SetCoordenadas(-5.0f, 0.0f);
-		posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
-	}
-		
-
+	posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
+	velocidad = velocidad + aceleracion * t;
 
 }
 
@@ -134,4 +128,19 @@ void Hombre::Mueve(unsigned char key, float t)
 	if (key == 'a')
 	{
 		posicion.SetCoordenadas(posicion.GetX() - 0.25, posicion.GetY());
+	}*/
+
+
+
+
+/*	if (key == 'd')
+	{
+		velocidad.SetCoordenadas(5.0f, 0.0f);
+		posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
+		
+	}
+	if (key == 'a')
+	{
+		velocidad.SetCoordenadas(-5.0f, 0.0f);
+		posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
 	}*/
