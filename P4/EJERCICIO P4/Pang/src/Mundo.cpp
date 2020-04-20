@@ -23,7 +23,7 @@ void Mundo::Inicializa()
 	hombre.SetAtributos(0, 0, 0, 0, 0, 0, 2);
 	hombre.SetColor(0, 0, 255);
 
-	disparo.SetAtributos(-2.0f, 0, 0, 0, 0, 0,0.1, 50, 50);
+	disparo.SetAtributos(0, 0, 0, 0, 0, 0,0.1, 50, 50);
 	disparo.SetColor(25, 0, 255);
 
 	bonus.SetAtributos(3, 1, 0, 0, 0, 0, 2);
@@ -82,12 +82,12 @@ void Mundo::Mueve()
 
 void Mundo::Tecla(unsigned char key)
 {
-	if (key == 'd')
+	if (key == 'd' || key== 'D')
 	{
 		hombre.SetVel(5.0f, 0.0f);
 		
 	}
-	if (key == 'a')
+	if (key == 'a' || key=='A')
 	{
 		hombre.SetVel(-5.0f, 0.0f);
 	}

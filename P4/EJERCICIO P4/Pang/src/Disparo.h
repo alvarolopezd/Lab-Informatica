@@ -25,5 +25,5 @@ public:
 	unsigned char GetVerde();
 	unsigned char GetAzul();
 	void Dibuja();
-	void Mueve(int value);
+	void Mueve(int t);
 };

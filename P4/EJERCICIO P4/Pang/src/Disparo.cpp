@@ -101,7 +101,7 @@ void Disparo::Dibuja()
 	glTranslatef(-posicion.GetX(), -posicion.GetY(), 0);
 	glDisable(GL_LIGHTING);
 	glBegin(GL_LINES);
-	glVertex3d(-2, 0, 0);
+	glVertex3d(0, 0, 0);
 	glVertex3d(posicion.GetX(), posicion.GetY(), 0);
 	glEnd();
 	glEnable(GL_LIGHTING);
@@ -109,10 +109,39 @@ void Disparo::Dibuja()
 
 }
 
+
+/*
+void Disparo::Mueve(int t)
+{
+	float xpos, ypos, xvel, yvel, xacel, yacel;
+	xpos = posicion.GetX();
+	ypos = posicion.GetY();
+	xvel = velocidad.GetX();
+	yvel = velocidad.GetY();
+	xacel = aceleracion.GetX();
+	yacel = aceleracion.GetY();
+
+	xpos = xpos + xvel * t + 0.5f * xacel * t * t;
+	ypos = ypos + yvel * t + 0.5f * yacel * t * t;
+	xvel = xvel + xacel * t;
+	yvel = yvel + yacel * t;
+
+	posicion.SetCoordenadas(xpos, ypos);
+	velocidad.SetCoordenadas(xvel, yvel);
+	aceleracion.SetCoordenadas(xacel, yacel);
+
+}*/
+
 void Disparo::Mueve(int value)
 {
 	int i;
-	for(i=0;i<=posicion.GetY();i++)
-		posicion.SetCoordenadas(posicion.GetX(), posicion.GetY()+0.25);
+	for (i = 0; i <= posicion.GetY(); i++)
+	{
+		posicion.SetCoordenadas(posicion.GetX(), posicion.GetY()+0.02);
+		if (i == 100)
+			break;
+	}
+		
+
 
 }

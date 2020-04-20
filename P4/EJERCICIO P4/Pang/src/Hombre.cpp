@@ -49,9 +49,7 @@ float Hombre::GetYPos()
 }
 Vector2D Hombre::GetPos()
 {
-	Vector2D res;
-	res.SetCoordenadas(GetXPos(), GetYPos());
-	return res;
+	return posicion;
 }
 
 float Hombre::GetXVel()
@@ -64,9 +62,7 @@ float Hombre::GetYVel()
 }
 Vector2D Hombre::GetVel()
 {
-	Vector2D res;
-	res.SetCoordenadas(GetXPos(), GetYPos());
-	return res;
+	return velocidad;
 }
 
 float Hombre::GetXAcel()
@@ -79,9 +75,7 @@ float Hombre::GetYAcel()
 }
 Vector2D Hombre::GetAcel()
 {
-	Vector2D res;
-	res.SetCoordenadas(GetXPos(), GetYPos());
-	return res;
+	return aceleracion;
 }
 
 
@@ -115,7 +109,7 @@ void Hombre::Dibuja()
 
 void Hombre::Mueve(float t)
 {
-	posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
+	posicion = posicion + velocidad * t + aceleracion * t * t;
 	velocidad = velocidad + aceleracion * t;
 
 }

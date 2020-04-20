@@ -86,28 +86,6 @@ void Pared::Dibuja()
 }
 
 
-/*
-float Pared::distancia(Vector2D punto, Vector2D* direccion)
-{
-	Vector2D u = (punto - limite1);
-	Vector2D v = (limite2 - limite1).Unitario();
-	float longitud = (limite2 - limite1).modulo();
-	Vector2D dir;
-	float valor = u*v;
-	float distancia = 0;
-
-	if (valor < 0)
-		dir = u;
-	else if (valor > longitud)
-		dir = (punto - limite2);
-	else
-		dir = u - v * valor;
-	distancia = dir.modulo();
-	if (direccion != 0)
-		*direccion = dir.Unitario();
-	return distancia;
-
-}*/
 
 
 float Pared::distancia(Vector2D punto, Vector2D* direccion) {
