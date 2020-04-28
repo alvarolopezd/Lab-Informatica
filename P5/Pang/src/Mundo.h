@@ -6,6 +6,7 @@
 #include "Bonus.h"
 #include "Interaccion.h"
 #include "ListaEsferas.h"
+#include "ListaDisparos.h"
 
 class Mundo
 {
@@ -15,6 +16,7 @@ private:
 	float z_ojo;
 	Esfera esfera, esfera2;
 	ListaEsferas esferas;
+	ListaDisparos disparos;
 	Caja caja;
 	Hombre hombre;
 	Disparo disparo;

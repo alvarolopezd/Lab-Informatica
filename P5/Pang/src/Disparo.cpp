@@ -14,6 +14,19 @@ Disparo::Disparo()
 	azul = 0;
 
 }
+
+
+Disparo::Disparo(float _xpos, float _ypos, float _xvel, float _yvel, float _xacel, float _yacel, float _radius)
+{
+	posicion.SetCoordenadas(_xpos, _ypos);
+	velocidad.SetCoordenadas(_xvel, _yvel);
+	aceleracion.SetCoordenadas(_xacel, _yacel);
+	radius = _radius;
+	slices = stacks = 50;
+	rojo = 0;
+	verde = azul = 255;
+
+}
 Disparo::~Disparo()
 {
 
@@ -92,6 +105,8 @@ unsigned char Disparo::GetAzul()
 	return azul;
 }
 
+////////
+/*
 void Disparo::Dibuja()
 {
 	glColor3f(GetRojo(), GetVerde(), GetAzul());
@@ -107,11 +122,26 @@ void Disparo::Dibuja()
 	glEnable(GL_LIGHTING);
 	glPopMatrix();
 
+}*/
+
+
+void Disparo::Dibuja()
+{
+	glColor3f(GetRojo(), GetVerde(), GetAzul());
+	glPushMatrix();
+	glTranslatef(posicion.GetX(), posicion.GetY(), 0);
+	glutSolidSphere(radius, 50, 50);
+	glPopMatrix();
+	glBegin(GL_LINES);
+	/////////// CAMBIAR ESOS 0.0F Y 0.0F A COORDENDADAS DEL PERSONAJE //////////////////
+	glVertex3f(0.0f,0.0f, 0.0f); 
+	glVertex3f(posicion.GetX(), posicion.GetY(), 0.0f);
+	glEnd();
 }
 
 
-/*
-void Disparo::Mueve(int t)
+
+void Disparo::Mueve(float t)
 {
 	float xpos, ypos, xvel, yvel, xacel, yacel;
 	xpos = posicion.GetX();
@@ -130,9 +160,11 @@ void Disparo::Mueve(int t)
 	velocidad.SetCoordenadas(xvel, yvel);
 	aceleracion.SetCoordenadas(xacel, yacel);
 
-}*/
+}
 
-void Disparo::Mueve(int value)
+
+////////////
+/*void Disparo::Mueve(int value)
 {
 	int i;
 	for (i = 0; i <= posicion.GetY(); i++)
@@ -141,7 +173,5 @@ void Disparo::Mueve(int value)
 		if (i == 100)
 			break;
 	}
-		
 
-
-}
+}*/

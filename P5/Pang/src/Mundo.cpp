@@ -30,8 +30,8 @@ void Mundo::Inicializa()
 	hombre.SetAtributos(0, 0, 0, 0, 0, 0, 2);
 	hombre.SetColor(0, 0, 255);
 
-	disparo.SetAtributos(0, 0, 0, 0, 0, 0,0.1, 50, 50);
-	disparo.SetColor(25, 0, 255);
+	disparo.SetAtributos(0, 0, 0, 0, 0, 9.81,0.1, 50, 50);
+	disparo.SetColor(255, 255, 0);
 
 	bonus.SetAtributos(3, 1, 0, 0, 0, 0, 2);
 
@@ -51,6 +51,7 @@ void Mundo::Inicializa()
 		//aux->SetColor(255, 0, 255);
 		esferas.agregar(aux);
 	}
+
 
 
 }
@@ -76,6 +77,8 @@ void Mundo::Dibuja()
 
 	esferas.Dibuja();
 
+	disparos.Dibuja();
+
 }
 
 
@@ -97,6 +100,8 @@ void Mundo::Mueve()
 	bonus.Mueve(0.025f);
 	hombre.Mueve(0.025f);
 	esferas.Mueve(0.025f);
+	disparos.Mueve(0.025f);
+
 	Interaccion::rebote(hombre, caja);
 	
 	Interaccion::rebote(esfera, caja);
@@ -127,7 +132,11 @@ void Mundo::Tecla(unsigned char key)
 	{
 		hombre.SetVel(-5.0f, 0.0f);
 	}
-	
+	if (key == ' ')
+	{
+		Disparo* aux = new Disparo(hombre.GetXPos(), hombre.GetYPos());
+		disparos.agregar(aux);
+	}
 }
 
 

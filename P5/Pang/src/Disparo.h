@@ -7,8 +7,10 @@ private:
 	Vector2D posicion, velocidad, aceleracion;
 	unsigned char rojo, verde, azul;
 	float radius, slices, stacks;
+	friend class Hombre;
 public:
 	Disparo();
+	Disparo(float _xpos, float _ypos, float _xvel = 0.0f, float _yvel = 0.0f, float _xacel=0.0f, float _yacel=9.81, float _radius=0.1f);
 	virtual ~Disparo();
 	void SetAtributos(float _xpos, float _ypos, float _xvel, float _yvel, float _acel, float _yacel, float _radius, float _slices, float _stacks);
 	void SetColor(unsigned char _rojo, unsigned char _verde, unsigned char _azul);
@@ -25,5 +27,5 @@ public:
 	unsigned char GetVerde();
 	unsigned char GetAzul();
 	void Dibuja();
-	void Mueve(int t);
+	void Mueve(float t);
 };
