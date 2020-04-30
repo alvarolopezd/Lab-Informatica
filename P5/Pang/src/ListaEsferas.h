@@ -25,6 +25,7 @@ public:
 
 	//REBOTE
 	void Rebote(Caja caja);
+	void Rebote();
 
 	//DESTRUCTOR
 	void destruirContenido();

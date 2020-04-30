@@ -39,7 +39,7 @@ void Mundo::Inicializa()
 	for (int i = 0; i < 6; i++)
 	{
 		// Se inicilizan las esferas de forma dinamica con el operador new
-		Esfera* aux = new Esfera(0.75+i*0.25, i, 1+i, i, i);
+		Esfera* aux = new Esfera(0.75+i*0.25, i+2, i+2, i, i);
 				
 		//aux->SetAtributos(i, i + 1, i, i, 0, -9.81, 0.75 + i * 0.25, 50, 50);
 		
@@ -51,8 +51,6 @@ void Mundo::Inicializa()
 		//aux->SetColor(255, 0, 255);
 		esferas.agregar(aux);
 	}
-
-
 
 }
 
@@ -111,6 +109,7 @@ void Mundo::Mueve()
 	Interaccion::rebote(esfera, esfera2);
 
 	esferas.Rebote(caja);
+	esferas.Rebote();
 
 
 	Esfera* aux = esferas.colision(hombre);

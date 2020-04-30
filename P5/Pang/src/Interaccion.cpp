@@ -135,7 +135,7 @@ bool Interaccion::colision(Esfera e, Hombre h)
 	Vector2D pos = h.GetPos();
 	pos.SetCoordenadas(pos.GetX(), h.GetSize() / 2.0f);
 
-	float distancia = (e.posicion - pos).modulo();
+	float distancia = (e.GetPos()- pos).modulo();
 	if(distancia<e.GetRadius())
 	{
 		return true;

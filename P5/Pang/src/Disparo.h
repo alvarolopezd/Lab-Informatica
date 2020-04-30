@@ -4,7 +4,7 @@
 class Disparo
 {
 private:
-	Vector2D posicion, velocidad, aceleracion;
+	Vector2D posicion, velocidad, aceleracion, origen;
 	unsigned char rojo, verde, azul;
 	float radius, slices, stacks;
 	friend class Hombre;

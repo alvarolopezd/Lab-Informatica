@@ -23,8 +23,7 @@ Disparo::Disparo(float _xpos, float _ypos, float _xvel, float _yvel, float _xace
 	aceleracion.SetCoordenadas(_xacel, _yacel);
 	radius = _radius;
 	slices = stacks = 50;
-	rojo = 0;
-	verde = azul = 255;
+	rojo =verde=azul= 255;
 
 }
 Disparo::~Disparo()
@@ -127,6 +126,7 @@ void Disparo::Dibuja()
 
 void Disparo::Dibuja()
 {
+	//origen.SetCoordenadas(posicion.GetX(), posicion.GetY());
 	glColor3f(GetRojo(), GetVerde(), GetAzul());
 	glPushMatrix();
 	glTranslatef(posicion.GetX(), posicion.GetY(), 0);
@@ -134,7 +134,7 @@ void Disparo::Dibuja()
 	glPopMatrix();
 	glBegin(GL_LINES);
 	/////////// CAMBIAR ESOS 0.0F Y 0.0F A COORDENDADAS DEL PERSONAJE //////////////////
-	glVertex3f(0.0f,0.0f, 0.0f); 
+	glVertex3f(posicion.GetX(), 0.0f, 0.0f);
 	glVertex3f(posicion.GetX(), posicion.GetY(), 0.0f);
 	glEnd();
 }

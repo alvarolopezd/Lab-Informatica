@@ -6,7 +6,7 @@ ListaEsferas::ListaEsferas()
 	//Inicilizar el numero de esferas iniciales a 0
 	numero = 0;
 	//Poner a NULL todos lo selementos de la lista 
-	for (int i = 0; i <= MAX_ESFERAS; i++)
+	for (int i = 0; i < MAX_ESFERAS; i++)
 	{
 		lista[i] = 0;
 	}
@@ -55,6 +55,17 @@ void ListaEsferas::Rebote(Caja caja)
 	}
 }
 
+void ListaEsferas::Rebote()
+{
+	for (int i = 0; i < numero; i++)
+	{
+		for (int j = 1; j < numero; j++)
+		{
+			Interaccion::rebote(*lista[i], *lista[j]);
+		}
+	}
+}
+
 void ListaEsferas::destruirContenido()
 {
 	for (int i = 0; i < numero; i++)
@@ -99,3 +110,4 @@ Esfera* ListaEsferas::colision(Hombre h)
 		return 0;
 	}
 }
+
