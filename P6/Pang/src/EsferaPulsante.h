@@ -8,9 +8,10 @@ private:
 	float radio_max;
 	float radio_min;
 	float pulso;
+	friend class Interaccion;
 public:
 	EsferaPulsante();
 	virtual ~EsferaPulsante();
-	void mueve(float t);
+	void Mueve(float t);
 
 };

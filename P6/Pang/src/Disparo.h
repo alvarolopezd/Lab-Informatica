@@ -1,10 +1,12 @@
 #pragma once
-#include "Vector2D.h"
+//#include "Vector2D.h"
+#include "ObjetoMovil.h"
 
-class Disparo
+class Disparo:public ObjetoMovil
 {
-private:
-	Vector2D posicion, velocidad, aceleracion, origen;
+protected:
+	//Vector2D posicion, velocidad, aceleracion, origen;
+	Vector2D origen;
 	unsigned char rojo, verde, azul;
 	float radius, slices, stacks;
 	friend class Hombre;
@@ -16,6 +18,8 @@ public:
 	void SetColor(unsigned char _rojo, unsigned char _verde, unsigned char _azul);
 	float GetXPos();
 	float GetYPos();
+	Vector2D GetPos();
+	Vector2D GetPosOrigen();
 	float GetXVel();
 	float GetYVel();
 	float GetXAcel();

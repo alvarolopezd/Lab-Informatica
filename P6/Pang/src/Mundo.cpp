@@ -36,9 +36,7 @@ void Mundo::Inicializa()
 
 	bonus.SetAtributos(3, 1, 0, 0, 0, 0, 2);
 
-	//esferaPulsante.SetAtributos(2, 8, -5, 15, 0, -9.81, 1, 50, 50);
-
-
+	
 	for (int i = 0; i < 6; i++)
 	{
 		// Se inicilizan las esferas de forma dinamica con el operador new
@@ -83,7 +81,9 @@ void Mundo::Dibuja()
 
 	disparos.Dibuja();
 
+	disparoPulsante.Dibuja();
 
+	esferaPulsante.Dibuja();
 
 }
 
@@ -99,7 +99,7 @@ void Mundo::RotarOjo()
 
 void Mundo::Mueve()
 {
-	
+	//objectoMovil.Mueve(0.025f);
 	disparo.Mueve(0.025f);	
 	esfera.Mueve(0.025f);
 	esfera2.Mueve(0.025f);
@@ -107,6 +107,7 @@ void Mundo::Mueve()
 	hombre.Mueve(0.025f);
 	esferas.Mueve(0.025f);
 	disparos.Mueve(0.025f);
+	disparoPulsante.Mueve(0.025f);
 
 	Interaccion::rebote(hombre, caja);
 	
@@ -126,7 +127,44 @@ void Mundo::Mueve()
 		esferas.Eliminar(aux);
 	}
 
-	
+	esferaPulsante.Mueve(0.025f);
+	Interaccion::rebote(esferaPulsante, caja);
+	for (int i = 0; i<esferas.GetNumero(); i++)
+	{
+		esferas.Rebote(esferaPulsante);
+	}
+
+	/*for (int i = 0; i < esferas.GetNumero(); i++)
+	{
+		if (esferas.Rebote(disparoPulsante, i))
+		{
+			/////////////////// ERROR esferas[i] ////////////////
+			Esfera* e = esferas[i]->dividir();
+			if (e == 0) //no division
+				esferas.Eliminar(esferas[i]);
+			else
+				esferas.agregar(e);
+			disparoPulsante.SetPos(0, 0);
+			disparoPulsante.SetVel(0, 10);
+			//ETSIDI::play("sonidos/impacto.wav");
+			break;
+		}
+		
+		if (Interaccion::colision(disparoPulsante, *esferas[i]))
+		{
+			Esfera* e = esferas[i]->dividir();
+			if (e == 0) //no division
+				esferas.eliminar(esferas[i]);
+			else
+				esferas.agregar(e);
+			disparo_especial.setPos(0, 0);
+			disparo_especial.setVel(0, 10);
+			ETSIDI::play("sonidos/impacto.wav");
+			break;
+		}
+	}*/
+
+
 }
 
 void Mundo::Tecla(unsigned char key)

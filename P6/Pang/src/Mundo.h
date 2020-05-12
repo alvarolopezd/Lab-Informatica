@@ -3,11 +3,13 @@
 #include "Caja.h"
 #include "Hombre.h"
 #include "Disparo.h"
+#include "DisparoPulsante.h"
 #include "Bonus.h"
 #include "Interaccion.h"
 #include "ListaEsferas.h"
 #include "ListaDisparos.h"
-
+#include "EsferaPulsante.h"
+#include "ObjetoMovil.h"
 
 class Mundo
 {
@@ -17,13 +19,15 @@ private:
 	float z_ojo;
 	Esfera esfera, esfera2;
 	ListaEsferas esferas;
-
+	EsferaPulsante esferaPulsante;
 	ListaDisparos disparos;
 	Caja caja;
 	Hombre hombre;
 	Disparo disparo;
+	DisparoPulsante disparoPulsante;
 	Bonus bonus;	
-public:
+	ObjetoMovil objectoMovil;
+public:		
 	virtual ~Mundo();
 	void Inicializa();
 	void Dibuja();

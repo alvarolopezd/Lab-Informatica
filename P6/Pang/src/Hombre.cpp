@@ -1,4 +1,5 @@
 #include "Hombre.h"
+//#include "ObjetoMovil.h"
 
 Hombre::Hombre()
 {
@@ -109,9 +110,10 @@ void Hombre::Dibuja()
 
 void Hombre::Mueve(float t)
 {
-	posicion = posicion + velocidad * t + aceleracion * t * t;
-	velocidad = velocidad + aceleracion * t;
-
+	ObjetoMovil::Mueve(t);
+	//posicion = posicion + velocidad * t + aceleracion * t * t;
+	//velocidad = velocidad + aceleracion * t;
+	
 }
 
 

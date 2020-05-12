@@ -142,3 +142,17 @@ bool Interaccion::colision(Esfera e, Hombre h)
 	}
 	return false;
 }
+
+bool Interaccion::colision(Disparo d, Esfera e)
+{
+	Pared aux; //Se crea una pared auxiliar
+	Vector2D p1 = d.GetPos();
+	Vector2D p2 = d.GetPosOrigen();
+	aux.SetAtributos(p1.GetX(), p1.GetY(), p2.GetX(), p2.GetY());
+	float dist = aux.distancia(e.GetPos());
+	if (dist < e.GetRadius())
+		return true;
+	else
+		return false;
+
+}

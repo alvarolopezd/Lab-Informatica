@@ -4,12 +4,14 @@
 #include "Esfera.h"
 #include "Caja.h"
 #include "Hombre.h"
+#include "Disparo.h"
 
 class ListaEsferas
 {
 private:
 	Esfera* lista[MAX_ESFERAS];
 	int numero;
+	friend class Interaccion;
 public:
 	ListaEsferas();
 	virtual ~ListaEsferas();
@@ -26,6 +28,8 @@ public:
 	//REBOTE
 	void Rebote(Caja caja);
 	void Rebote();
+	void Rebote(Esfera esfera);
+	bool Rebote(Disparo disparo, int i);
 
 	//DESTRUCTOR
 	void destruirContenido();
@@ -37,8 +41,7 @@ public:
 	//COLISION CON LISTA DE ESFERAS
 	Esfera* colision(Hombre h);
 
-	int GetNumero()
-	{
+	int GetNumero() {
 		return numero;
 	}
 		

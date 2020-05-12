@@ -66,6 +66,22 @@ void ListaEsferas::Rebote()
 	}
 }
 
+void ListaEsferas::Rebote(Esfera esfera)
+{
+	for (int i = 0; i < numero; i++)
+	{
+		Interaccion::rebote(esfera, *lista[i]);
+	}
+}
+
+bool ListaEsferas::Rebote(Disparo disparo, int i)
+{
+	if (Interaccion::colision(disparo, *lista[i]))
+		return true;
+	else return false;
+}
+
+
 void ListaEsferas::destruirContenido()
 {
 	for (int i = 0; i < numero; i++)
@@ -110,4 +126,5 @@ Esfera* ListaEsferas::colision(Hombre h)
 		return 0;
 	}
 }
+
 

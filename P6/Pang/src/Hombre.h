@@ -1,11 +1,12 @@
 #pragma once
 #include "Vector2D.h"
+#include "ObjetoMovil.h"
 #include "glut.h"
 
-class Hombre
+class Hombre:public ObjetoMovil
 {
 private:
-	Vector2D posicion, velocidad, aceleracion;
+	//Vector2D posicion, velocidad, aceleracion;
 	float size;
 	unsigned char rojo, verde, azul;
 	friend class Interaccion;

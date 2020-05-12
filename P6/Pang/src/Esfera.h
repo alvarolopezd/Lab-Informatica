@@ -1,11 +1,12 @@
 #pragma once
-#include "Vector2D.h"
+//#include "Vector2D.h"
+#include "ObjetoMovil.h"
 #include "glut.h"
 
-class Esfera
+class Esfera:public ObjetoMovil
 {
 protected:
-	Vector2D posicion, velocidad, aceleracion;
+	//Vector2D posicion, velocidad, aceleracion;
 	float radius, slices, stacks;
 	unsigned char rojo, verde, azul;
 	friend class Interaccion;
@@ -38,6 +39,9 @@ public:
 	unsigned char GetAzul();
 	void Dibuja();
 	void Mueve(float t);
+
+	virtual Esfera* dividir();
+
 };
 
 

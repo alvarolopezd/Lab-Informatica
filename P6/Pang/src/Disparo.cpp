@@ -12,6 +12,7 @@ Disparo::Disparo()
 	rojo = 0;
 	verde = 0;
 	azul = 0;
+	origen.SetCoordenadas(0.0f, 0.0f);
 
 }
 
@@ -59,6 +60,15 @@ float Disparo::GetYPos()
 {
 	return posicion.GetY();
 }
+Vector2D Disparo::GetPos()
+{
+	return posicion;
+}
+Vector2D Disparo::GetPosOrigen()
+{
+	return origen;
+}
+
 float Disparo::GetXVel()
 {
 	return velocidad.GetX();
@@ -133,8 +143,7 @@ void Disparo::Dibuja()
 	glutSolidSphere(radius, 50, 50);
 	glPopMatrix();
 	glBegin(GL_LINES);
-	/////////// CAMBIAR ESOS 0.0F Y 0.0F A COORDENDADAS DEL PERSONAJE //////////////////
-	glVertex3f(posicion.GetX(), 0.0f, 0.0f);
+	glVertex3f(posicion.GetX(), origen.GetY(), 0.0f);
 	glVertex3f(posicion.GetX(), posicion.GetY(), 0.0f);
 	glEnd();
 }

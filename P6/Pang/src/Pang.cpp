@@ -1,7 +1,10 @@
 #include "Mundo.h"
+//#include "Coordinadorpang.h"
 #include "glut.h"
 
 Mundo mundo;
+
+//CoordinadorPang coordinador;
 
 //los callback, funciones que seran llamadas automaticamente por la glut
 //cuando sucedan eventos
@@ -49,8 +52,8 @@ void OnDraw(void)
 	glMatrixMode(GL_MODELVIEW);	
 	glLoadIdentity();
 	
+	//coordinador.Dibuja();
 	mundo.Dibuja();
-
 
 	//no borrar esta linea ni poner nada despues
 	glutSwapBuffers();

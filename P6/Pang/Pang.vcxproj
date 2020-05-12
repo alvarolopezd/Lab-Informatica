@@ -63,7 +63,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>%(SolutionDir)lib\glut32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glut32.lib;ETSIDI.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ProgramDatabaseFile>$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
   </ItemDefinitionGroup>
@@ -89,6 +89,7 @@
     <ClCompile Include="src\Caja.cpp" />
     <ClCompile Include="src\CoordinadorPang.cpp" />
     <ClCompile Include="src\Disparo.cpp" />
+    <ClCompile Include="src\DisparoPulsante.cpp" />
     <ClCompile Include="src\Esfera.cpp" />
     <ClCompile Include="src\EsferaPulsante.cpp" />
     <ClCompile Include="src\Hombre.cpp" />
@@ -96,6 +97,7 @@
     <ClCompile Include="src\ListaDisparos.cpp" />
     <ClCompile Include="src\ListaEsferas.cpp" />
     <ClCompile Include="src\Mundo.cpp" />
+    <ClCompile Include="src\ObjetoMovil.cpp" />
     <ClCompile Include="src\Pang.cpp" />
     <ClCompile Include="src\Pared.cpp" />
     <ClCompile Include="src\Vector2D.cpp" />
@@ -103,8 +105,9 @@
   <ItemGroup>
     <ClInclude Include="src\Bonus.h" />
     <ClInclude Include="src\Caja.h" />
-    <ClInclude Include="src\Coordinadorpang.h" />
+    <ClInclude Include="src\CoordinadorPang.h" />
     <ClInclude Include="src\Disparo.h" />
+    <ClInclude Include="src\DisparoPulsante.h" />
     <ClInclude Include="src\Esfera.h" />
     <ClInclude Include="src\EsferaPulsante.h" />
     <ClInclude Include="src\Hombre.h" />
@@ -112,6 +115,7 @@
     <ClInclude Include="src\ListaDisparos.h" />
     <ClInclude Include="src\ListaEsferas.h" />
     <ClInclude Include="src\Mundo.h" />
+    <ClInclude Include="src\ObjetoMovil.h" />
     <ClInclude Include="src\Pared.h" />
     <ClInclude Include="src\Vector2D.h" />
   </ItemGroup>

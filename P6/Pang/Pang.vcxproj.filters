@@ -57,6 +57,12 @@
     <ClCompile Include="src\CoordinadorPang.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
+    <ClCompile Include="src\DisparoPulsante.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ObjetoMovil.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Mundo.h">
@@ -95,7 +101,13 @@
     <ClInclude Include="src\EsferaPulsante.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="src\Coordinadorpang.h">
+    <ClInclude Include="src\DisparoPulsante.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ObjetoMovil.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CoordinadorPang.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

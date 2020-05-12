@@ -1,10 +1,11 @@
 #pragma once
 #include "Vector2D.h"
+#include "ObjetoMovil.h"
 
-class Bonus
+class Bonus:public ObjetoMovil
 {
 private:
-	Vector2D posicion, velocidad, aceleracion;
+	//Vector2D posicion, velocidad, aceleracion;
 	float size;
 public:
 	Bonus();

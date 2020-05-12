@@ -91,6 +91,7 @@ void Bonus::Dibuja()
 
 void Bonus::Mueve(float t)
 {
-	posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
-	velocidad = velocidad + aceleracion * t;
+	ObjetoMovil::Mueve(t);
+	//posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
+	//velocidad = velocidad + aceleracion * t;
 }

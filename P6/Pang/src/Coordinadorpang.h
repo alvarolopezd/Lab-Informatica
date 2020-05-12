@@ -1,19 +1,19 @@
-#pragma once
+/*#pragma once
 #include "Mundo.h"
 
 class CoordinadorPang
 {
-private:
+protected:
 	Mundo mundo;
-	enum Estado{INICIO,JUEGO};
+	enum Estado { INICIO, JUEGO };
 	Estado estado;
 public:
 	CoordinadorPang();
 	~CoordinadorPang();
 
 	void teclaEspecial(unsigned char key);
-	void tecla(unsigned char key);
-	void mueve();
-	void dibuja();
+	void Tecla(unsigned char key);
+	void Mueve();
+	void Dibuja();
 
-};
+};*/

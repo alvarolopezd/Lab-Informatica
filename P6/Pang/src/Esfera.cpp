@@ -6,8 +6,8 @@ Esfera::Esfera()
 	velocidad.SetCoordenadas(0, 0);
 	aceleracion.SetCoordenadas(0, 0);
 	radius = 0;
-	slices = 0;
-	stacks = 0;
+	slices = 50;
+	stacks = 50;
 	rojo = 0;
 	verde = 0;
 	azul = 0;
@@ -161,8 +161,9 @@ void Esfera::Dibuja()
 
 void Esfera::Mueve(float t)
 {
-	posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
-	velocidad = velocidad + aceleracion * t;
+	ObjetoMovil::Mueve(t);
+	//posicion = posicion + velocidad * t + aceleracion * (0.5f * t * t);
+	//velocidad = velocidad + aceleracion * t;
 }
 
 
@@ -170,3 +171,17 @@ void Esfera::Mueve(float t)
 		radius = radius + 0.1;
 	if (key == '-')
 		radius = radius - 0.1;*/
+
+
+Esfera* Esfera::dividir()
+{
+	if (radius < 1.0f)
+		return 0; //No se divide
+	radius /= 2.0f; //Dividimos el radois entre dos
+	//Creo una nueva esfera, copiando la actual
+	Esfera* aux = new Esfera(*this);
+	//Lee las nuevas velocidades
+	aux->SetVel(5, 8);
+	SetVel(-5, 8);
+	return aux;
+}
