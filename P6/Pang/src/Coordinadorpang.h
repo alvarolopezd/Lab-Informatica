@@ -1,4 +1,4 @@
-/*#pragma once
+#pragma once
 #include "Mundo.h"
 
 class CoordinadorPang
@@ -16,4 +16,4 @@ public:
 	void Mueve();
 	void Dibuja();
 
-};*/
+};

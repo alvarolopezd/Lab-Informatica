@@ -1,6 +1,7 @@
-/*
-#include "CoordinadorPang.h"
+
 #include "ETSIDI.h"
+#include "CoordinadorPang.h"
+
 #include <stdlib.h>
 #include <stdio.h> 
 
@@ -60,5 +61,5 @@ void CoordinadorPang::Dibuja()
 	}
 	else if (estado == JUEGO)
 		mundo.Dibuja();
-}*/
+}
 

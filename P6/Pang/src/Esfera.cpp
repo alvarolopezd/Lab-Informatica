@@ -173,7 +173,7 @@ void Esfera::Mueve(float t)
 		radius = radius - 0.1;*/
 
 
-Esfera* Esfera::dividir()
+Esfera	*Esfera::dividir()
 {
 	if (radius < 1.0f)
 		return 0; //No se divide
