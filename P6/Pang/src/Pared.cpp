@@ -27,7 +27,7 @@ void Pared::SetColor(unsigned char _rojo, unsigned char _verde, unsigned char _a
 	verde = _verde;
 	azul = _azul;
 }
-/*
+
 float Pared::GetXLim1()
 {
 	return limite1.GetX();
@@ -44,7 +44,7 @@ float Pared::GetXLim2()
 float Pared::GetYLim2()
 {
 	return limite2.GetY();
-}*/
+}
 
 Vector2D Pared::GetLimite1() {
 	return limite1;

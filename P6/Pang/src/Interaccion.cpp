@@ -129,6 +129,70 @@ bool Interaccion::rebote(Esfera& esfera1, Esfera& esfera2)
 	return false;
 }
 
+bool Interaccion::rebote(Disparo& d, Pared p)
+{
+	Vector2D dir;
+	float dif = p.distancia(d.GetPos(), &dir) - d.GetRadius();
+	if (dif <= 0.0f)
+	{
+		Vector2D v_inicial = d.GetVel();
+		//d.SetVel(v_inicial - dir * 2.0 * (v_inicial * dir));
+		d.SetVel(0.0f, 0.0f);
+		d.SetAcel(0, 0);
+		//////////////////////////////
+		d.SetPos(d.GetXPos(), d.GetYPos());
+		//d.SetPos(-5.0f, 0.5f);
+		//d.SetPos(d.GetPos() - dir * dif);
+		
+		return true;
+	}
+	return false;
+}
+
+bool Interaccion::rebote(DisparoPulsante& d, Pared p)
+{
+	Vector2D dir;
+	float dif = p.distancia(d.GetPos(), &dir) - d.GetRadius();
+	if (dif <= 0.0f)
+	{
+		Vector2D v_inicial = d.GetVel();
+		//d.SetVel(v_inicial - dir * 2.0 * (v_inicial * dir));
+		d.SetVel(0.0f, 0.0f);
+		d.SetAcel(0, 0);
+		//////////////////////////////
+		//d.SetPos(d.GetXPos(), d.GetXPosOrigen());
+		d.SetPos(-5.0f, 0.5f);
+		//d.SetPos(d.GetPos() - dir * dif);
+
+		return true;
+	}
+	return false;
+}
+
+
+
+
+void Interaccion::rebote(Disparo& d, Caja c)
+{
+	Interaccion::rebote(d, c.GetSuelo());
+	Interaccion::rebote(d, c.GetTecho());
+	Interaccion::rebote(d, c.GetParedDer());
+	Interaccion::rebote(d, c.GetParedIzq());
+	Interaccion::rebote(d, c.GetPlataforma());
+}
+
+void Interaccion::rebote(DisparoPulsante& d, Caja c)
+{
+	Interaccion::rebote(d, c.GetSuelo());
+	Interaccion::rebote(d, c.GetTecho());
+	Interaccion::rebote(d, c.GetParedDer());
+	Interaccion::rebote(d, c.GetParedIzq());
+	Interaccion::rebote(d, c.GetPlataforma());
+}
+
+
+
+
 
 bool Interaccion::colision(Esfera e, Hombre h)
 {

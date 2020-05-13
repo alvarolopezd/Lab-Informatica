@@ -16,4 +16,5 @@ public:
 	void Dibuja();
 	void SetPos(float _x, float _y);
 	void SetVel(float _x, float _y);
+	
 };

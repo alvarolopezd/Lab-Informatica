@@ -167,11 +167,6 @@ void Esfera::Mueve(float t)
 }
 
 
-/*if (key == '+')
-		radius = radius + 0.1;
-	if (key == '-')
-		radius = radius - 0.1;*/
-
 
 Esfera	*Esfera::dividir()
 {

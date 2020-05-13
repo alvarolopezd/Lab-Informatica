@@ -127,4 +127,16 @@ Esfera* ListaEsferas::colision(Hombre h)
 	}
 }
 
+Esfera* ListaEsferas::colision(Disparo d)
+{
+	for (int i = 0; i < numero; i++)
+	{
+		if (Interaccion::colision(d,*(lista[i])))
+		{
+			return lista[i];
+		}
+		return 0;
+	}
+}
+
 

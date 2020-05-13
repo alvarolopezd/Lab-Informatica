@@ -1,4 +1,5 @@
 #include "ListaDisparos.h"
+#include "Interaccion.h"
 
 ListaDisparos::ListaDisparos()
 {
@@ -38,5 +39,13 @@ void ListaDisparos::Mueve(float t)
 	for (int i = 0; i < numero; i++)
 	{
 		lista[i]->Mueve(t);
+	}
+}
+
+void ListaDisparos::Rebote(Caja caja)
+{
+	for (int i = 0; i < numero; i++)
+	{
+		Interaccion::rebote(*(lista[i]), caja);
 	}
 }

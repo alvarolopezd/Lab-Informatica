@@ -6,6 +6,7 @@ Disparo::Disparo()
 	posicion.SetCoordenadas(0, 0);
 	velocidad.SetCoordenadas(0, 0);
 	aceleracion.SetCoordenadas(0, 0);
+	origen.SetCoordenadas(0, 0);
 	radius = 0;
 	slices = 0;
 	stacks = 0;
@@ -20,6 +21,7 @@ Disparo::Disparo()
 Disparo::Disparo(float _xpos, float _ypos, float _xvel, float _yvel, float _xacel, float _yacel, float _radius)
 {
 	posicion.SetCoordenadas(_xpos, _ypos);
+	origen.SetCoordenadas(_xpos, _ypos);
 	velocidad.SetCoordenadas(_xvel, _yvel);
 	aceleracion.SetCoordenadas(_xacel, _yacel);
 	radius = _radius;
@@ -38,6 +40,7 @@ void Disparo::SetAtributos(float _xpos, float _ypos, float _xvel, float _yvel, f
 	posicion.SetCoordenadas(_xpos, _ypos);
 	velocidad.SetCoordenadas(_xvel, _yvel);
 	aceleracion.SetCoordenadas(_xacel, _yacel);
+	origen.SetCoordenadas(_xpos, _ypos);
 	radius = _radius;
 	slices = _slices;
 	stacks = _stacks;
@@ -48,6 +51,33 @@ void Disparo::SetColor(unsigned char _rojo, unsigned char _verde, unsigned char 
 	rojo = _rojo;
 	verde = _verde;
 	azul = _azul;
+}
+
+void Disparo::SetPos(float _x, float _y)
+{
+	posicion.SetCoordenadas(_x, _y);
+}
+void Disparo::SetPos(Vector2D p)
+{
+	posicion = p;
+}
+
+void Disparo::SetVel(float _x, float _y)
+{
+	velocidad.SetCoordenadas(_x, _y);
+}
+void Disparo::SetVel(Vector2D p)
+{
+	velocidad = p;
+}
+
+void Disparo::SetAcel(float _x, float _y)
+{
+	aceleracion.SetCoordenadas(_x, _y);
+}
+void Disparo::SetAcel(Vector2D p)
+{
+	aceleracion = p;
 }
 
 
@@ -64,6 +94,15 @@ Vector2D Disparo::GetPos()
 {
 	return posicion;
 }
+
+float Disparo::GetXPosOrigen()
+{
+	return origen.GetX();
+}
+float Disparo::GetYPosOrigen()
+{
+	return origen.GetY();
+}
 Vector2D Disparo::GetPosOrigen()
 {
 	return origen;
@@ -77,6 +116,11 @@ float Disparo::GetYVel()
 {
 	return velocidad.GetY();
 }
+Vector2D Disparo::GetVel()
+{
+	return velocidad;
+}
+
 float Disparo::GetXAcel()
 {
 	return aceleracion.GetX();

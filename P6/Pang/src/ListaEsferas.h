@@ -40,6 +40,7 @@ public:
 
 	//COLISION CON LISTA DE ESFERAS
 	Esfera* colision(Hombre h);
+	Esfera* colision(Disparo d);
 
 	int GetNumero() {
 		return numero;

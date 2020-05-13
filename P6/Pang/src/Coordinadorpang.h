@@ -5,7 +5,7 @@ class CoordinadorPang
 {
 protected:
 	Mundo mundo;
-	enum Estado { INICIO, JUEGO };
+	enum Estado { INICIO, JUEGO, GAMEOVER, FIN, PAUSA };
 	Estado estado;
 public:
 	CoordinadorPang();

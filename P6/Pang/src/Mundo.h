@@ -17,6 +17,7 @@ private:
 	float x_ojo;
 	float y_ojo;
 	float z_ojo;
+	bool impacto=false;
 	Esfera esfera, esfera2;
 	ListaEsferas esferas;
 	EsferaPulsante esferaPulsante;
@@ -34,5 +35,7 @@ public:
 	void RotarOjo();
 	void Mueve();
 	void Tecla(unsigned char key);
+	int GetNumEsferas();
+	bool GetImpacto();
 
 };

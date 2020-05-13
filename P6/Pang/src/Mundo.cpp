@@ -15,6 +15,7 @@ Mundo::~Mundo()
 
 void Mundo::Inicializa()
 {
+	impacto = false;
 	x_ojo = 0;
 	y_ojo = 7.5;
 	z_ojo = 20;
@@ -37,7 +38,7 @@ void Mundo::Inicializa()
 	bonus.SetAtributos(3, 1, 0, 0, 0, 0, 2);
 
 	
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i < 3; i++)
 	{
 		// Se inicilizan las esferas de forma dinamica con el operador new
 		Esfera* aux = new Esfera(0.75+i*0.25, i+2, i+2, i, i);
@@ -120,13 +121,25 @@ void Mundo::Mueve()
 	esferas.Rebote(caja);
 	esferas.Rebote();
 
+	disparos.Rebote(caja);
 
 	Esfera* aux = esferas.colision(hombre);
 	if (aux != 0)
 	{
-		esferas.Eliminar(aux);
+		//esferas.Eliminar(aux);
+		impacto = true;
 	}
+	
+	/*Esfera* auxd = esferas.colision(disparoPulsante);
+	if (auxd != 0)
+	{
+		esferas.Eliminar(auxd);
+	}*/
 
+	Interaccion::rebote(disparoPulsante, caja);
+	Interaccion::rebote(disparo, caja);
+
+	
 	esferaPulsante.Mueve(0.025f);
 	Interaccion::rebote(esferaPulsante, caja);
 	for (int i = 0; i<esferas.GetNumero(); i++)
@@ -148,8 +161,8 @@ void Mundo::Mueve()
 			disparoPulsante.SetVel(0, 10);
 			//ETSIDI::play("sonidos/impacto.wav");
 			break;
-		}
-		
+		}*/
+		/*
 		if (Interaccion::colision(disparoPulsante, *esferas[i]))
 		{
 			Esfera* e = esferas[i]->dividir();
@@ -180,10 +193,23 @@ void Mundo::Tecla(unsigned char key)
 	}
 	if (key == ' ')
 	{
-		Disparo* aux = new Disparo(hombre.GetXPos(), hombre.GetYPos());
+		Disparo* aux = new Disparo(hombre.GetXPos()+0.5, hombre.GetYPos()+0.5);
 		disparos.agregar(aux);
 	}
 }
+
+int Mundo::GetNumEsferas()
+{
+	return esferas.GetNumero();
+}
+bool Mundo::GetImpacto()
+{	
+	if (impacto == true)
+		return true;
+	else
+		return false;
+}
+
 
 
 

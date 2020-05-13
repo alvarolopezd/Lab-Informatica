@@ -3,7 +3,7 @@
 
 DisparoPulsante::DisparoPulsante()
 {
-	posicion.SetCoordenadas(-5, 0);
+	posicion.SetCoordenadas(-5, 0.5f);
 	velocidad.SetCoordenadas(0, 0.05);
 	aceleracion.SetCoordenadas(0, 9.81);
 	radius = 0.2;
