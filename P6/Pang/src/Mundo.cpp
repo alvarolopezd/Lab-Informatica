@@ -32,13 +32,16 @@ void Mundo::Inicializa()
 	hombre.SetAtributos(0, 0, 0, 0, 0, 0, 2);
 	hombre.SetColor(0, 0, 255);
 
+	esferas.destruirContenido();
+	disparos.DestruirContenido();
+
 	//disparo.SetAtributos(0, 0, 0, 0, 0, 9.81,0.1, 50, 50);
 	//disparo.SetColor(255, 255, 0);
 
-	bonus.SetAtributos(3, 1, 0, 0, 0, 0, 2);
+	bonus.SetAtributos(3, 1, 0, 0, 0, 0, 0.5);
 
 	
-	for (int i = 0; i < 6; i++)
+	for (int i = 0; i < 3; i++)
 	{
 		// Se inicilizan las esferas de forma dinamica con el operador new
 		Esfera* aux = new Esfera(0.75+i*0.25, i+2, i+2, i, i);
@@ -122,11 +125,11 @@ void Mundo::Mueve()
 		impacto = true;
 	}
 	
-	Esfera* auxd = esferas.colision(disparoPulsante);
+	/*Esfera* auxd = esferas.colision(disparoPulsante);
 	if (auxd != 0)
 	{
 		esferas.Eliminar(auxd);
-	}
+	}*/
 
 	Interaccion::rebote(disparoPulsante, caja);
 	//Interaccion::rebote(disparo, caja);
@@ -155,7 +158,7 @@ void Mundo::Mueve()
 				disparos.Eliminar(disparos[j]);
 
 				//ETSIDI::play("sonidos/impacto.wav");
-				break;
+				//break;
 			}
 		}
 	}
@@ -187,9 +190,11 @@ void Mundo::Tecla(unsigned char key)
 		hombre.SetVel(-5.0f, 0.0f);
 	}
 	if (key == ' ')
-	{
+	{ 
 		Disparo* aux = new Disparo(hombre.GetXPos()+0.5, hombre.GetYPos()+0.5);
+		aux->SetOrigen(hombre.GetXPos()+0.5, 0);
 		disparos.agregar(aux);
+
 	}
 }
 
@@ -205,19 +210,19 @@ bool Mundo::GetImpacto()
 		return false;
 }
 
-
-/*bool Mundo::CargarNivel()
+/*
+bool Mundo::CargarNivel()
 {
 	nivel++;
 	hombre.SetPos(0, 0);
 	esferas.destruirContenido();
-	disparos.destruirContenido();
+	disparos.DestruirContenido();
 
 	if (nivel == 1)
 	{
 		plataforma.setPos(-5.0f, 9.0f, 5.0f, 9.0f);
 		Esfera* e1 = new Esfera(1.5f, 2, 4, 5, 15);
-		e1->setColor(0, 0, 255);
+		e1->SetColor(0, 0, 255);
 		esferas.agregar(e1); //esfera
 	}
 	if (nivel == 2)
@@ -225,8 +230,8 @@ bool Mundo::GetImpacto()
 		plataforma.setPos(-3.0f, 6.0f, 3.0f, 6.0f);
 		plataforma.setColor(255, 0, 0);
 		EsferaPulsante* e3 = new EsferaPulsante;
-		e3->setPos(0, 12);
-		e3->setVel(5, 3);
+		e3->SetPos(0, 12);
+		e3->SetVel(5, 3);
 		esferas.agregar(e3);
 	}
 	if (nivel == 3)
@@ -236,7 +241,7 @@ bool Mundo::GetImpacto()
 		for (int i = 0; i < 6; i++)
 		{
 			Esfera* aux = new Esfera(1.5, -5 + i, 13, i, 5);
-			aux->setColor(i * 40, 0, 255 - i * 40);
+			aux->SetColor(i * 40, 0, 255 - i * 40);
 			esferas.agregar(aux);
 		}
 	}

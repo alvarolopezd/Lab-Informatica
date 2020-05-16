@@ -17,6 +17,7 @@ public:
 	void SetAtributos(float _xpos, float _ypos, float _xvel, float _yvel, float _acel, float _yacel, float _radius, float _slices, float _stacks);
 	void SetColor(unsigned char _rojo, unsigned char _verde, unsigned char _azul);
 	void SetPos(float _x, float _y);
+	void SetOrigen(float _x, float _y);
 	void SetVel(float _x, float _y);
 	void SetAcel(float _x, float _y);
 	void SetVel(Vector2D p);

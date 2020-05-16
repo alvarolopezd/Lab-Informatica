@@ -216,7 +216,6 @@ bool Interaccion::colision(Disparo d, Esfera e)
 	float dist = aux.distancia(e.GetPos());
 	if (dist < e.GetRadius())
 		return true;
-	else
-		return false;
+	return false;
 
 }

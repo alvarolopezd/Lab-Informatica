@@ -1,10 +1,10 @@
 #include "Mundo.h"
-//#include "Coordinadorpang.h"
+#include "Coordinadorpang.h"
 #include "glut.h"
 
-Mundo mundo;
+//Mundo mundo;
 
-//CoordinadorPang coordinador;
+CoordinadorPang coordinador;
 
 //los callback, funciones que seran llamadas automaticamente por la glut
 //cuando sucedan eventos
@@ -35,7 +35,7 @@ int main(int argc,char* argv[])
 	glutTimerFunc(25,OnTimer,0);//le decimos que dentro de 25ms llame 1 vez a la funcion OnTimer()
 	glutKeyboardFunc(OnKeyboardDown);
 
-	mundo.Inicializa();
+	//coordinador.Inicializa();
 		
 	//pasarle el control a GLUT,que llamara a los callbacks
 	glutMainLoop();	
@@ -53,7 +53,7 @@ void OnDraw(void)
 	glLoadIdentity();
 	
 	//coordinador.Dibuja();
-	mundo.Dibuja();
+	coordinador.Dibuja();
 
 	//no borrar esta linea ni poner nada despues
 	glutSwapBuffers();
@@ -61,7 +61,7 @@ void OnDraw(void)
 void OnKeyboardDown(unsigned char key, int x_t, int y_t)
 {
 	//poner aqui el código de teclado
-	mundo.Tecla(key);
+	coordinador.Tecla(key);
 
 	glutPostRedisplay();
 }
@@ -70,7 +70,7 @@ void OnTimer(int value)
 {
 //poner aqui el código de animacion
 	
-	mundo.Mueve();
+	coordinador.Mueve();
 	//no borrar estas lineas
 	glutTimerFunc(25,OnTimer,0);
 	glutPostRedisplay();

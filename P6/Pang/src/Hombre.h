@@ -14,6 +14,7 @@ public:
 	Hombre();
 	virtual ~Hombre();
 	void SetAtributos(float _xpos, float _ypos, float _xvel, float _yvel, float _acel, float _yacel, float _size);
+	void SetPos(float _xpos, float _ypos);
 	void SetVel(float _xvel, float _yvel);
 	void SetColor(unsigned char _rojo, unsigned char _verde, unsigned char _azul);
 	float GetXPos();

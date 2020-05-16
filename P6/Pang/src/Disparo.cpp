@@ -21,7 +21,7 @@ Disparo::Disparo()
 Disparo::Disparo(float _xpos, float _ypos, float _xvel, float _yvel, float _xacel, float _yacel, float _radius)
 {
 	posicion.SetCoordenadas(_xpos, _ypos);
-	origen.SetCoordenadas(_xpos, _ypos);
+	origen.SetCoordenadas(_xpos, 0);
 	velocidad.SetCoordenadas(_xvel, _yvel);
 	aceleracion.SetCoordenadas(_xacel, _yacel);
 	radius = _radius;
@@ -56,6 +56,11 @@ void Disparo::SetColor(unsigned char _rojo, unsigned char _verde, unsigned char 
 void Disparo::SetPos(float _x, float _y)
 {
 	posicion.SetCoordenadas(_x, _y);
+}
+void Disparo::SetOrigen(float _x, float _y)
+{
+	origen.SetCoordenadas(_x, _y);
+
 }
 void Disparo::SetPos(Vector2D p)
 {
@@ -187,7 +192,7 @@ void Disparo::Dibuja()
 	glutSolidSphere(radius, 50, 50);
 	glPopMatrix();
 	glBegin(GL_LINES);
-	glVertex3f(posicion.GetX(), origen.GetY(), 0.0f);
+	glVertex3f(origen.GetX(), origen.GetY(), 0.0f);
 	glVertex3f(posicion.GetX(), posicion.GetY(), 0.0f);
 	glEnd();
 }

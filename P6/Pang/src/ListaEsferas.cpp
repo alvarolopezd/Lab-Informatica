@@ -115,7 +115,7 @@ void ListaEsferas::Eliminar(Esfera *e)
 	}
 }
 
-Esfera* ListaEsferas::colision(Hombre h)
+Esfera* ListaEsferas::colision(Hombre &h)
 {
 	for (int i = 0; i < numero; i++)
 	{
@@ -127,7 +127,7 @@ Esfera* ListaEsferas::colision(Hombre h)
 	}
 }
 
-Esfera* ListaEsferas::colision(Disparo d)
+/*Esfera* ListaEsferas::colision(Disparo d)
 {
 	for (int i = 0; i < numero; i++)
 	{
@@ -137,7 +137,7 @@ Esfera* ListaEsferas::colision(Disparo d)
 		}
 		return 0;
 	}
-}
+}*/
 
 
 Esfera* ListaEsferas::operator [](int i)

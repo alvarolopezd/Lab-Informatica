@@ -26,6 +26,12 @@ void Hombre::SetAtributos(float _xpos, float _ypos, float _xvel, float _yvel, fl
 	size = _size;
 }
 
+void Hombre::SetPos(float _xpos, float _ypos)
+{
+	posicion.SetCoordenadas(_xpos, _ypos);
+}
+
+
 void Hombre::SetVel(float _xvel, float _yvel)
 {
 	velocidad.SetCoordenadas(_xvel, _yvel);
