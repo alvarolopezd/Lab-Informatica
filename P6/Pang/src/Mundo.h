@@ -17,6 +17,7 @@ private:
 	float x_ojo;
 	float y_ojo;
 	float z_ojo;
+	int nivel;
 	bool impacto=false;
 	Esfera esfera, esfera2;
 	ListaEsferas esferas;
@@ -28,14 +29,18 @@ private:
 	DisparoPulsante disparoPulsante;
 	Bonus bonus;	
 	ObjetoMovil objectoMovil;
-public:		
+public:	
 	virtual ~Mundo();
 	void Inicializa();
 	void Dibuja();
 	void RotarOjo();
 	void Mueve();
+	void TeclaEspecial(unsigned char key);
 	void Tecla(unsigned char key);
 	int GetNumEsferas();
 	bool GetImpacto();
+
+	//bool CargarNivel();
+
 
 };

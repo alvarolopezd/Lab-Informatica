@@ -20,11 +20,11 @@ void Mundo::Inicializa()
 	y_ojo = 7.5;
 	z_ojo = 20;
 
-	esfera.SetAtributos(2, 8, -5, 15, 0, -9.81, 1, 50, 50);
-	esfera.SetColor(255, 0, 0);
+	//esfera.SetAtributos(2, 8, -5, 15, 0, -9.81, 1, 50, 50);
+	//esfera.SetColor(255, 0, 0);
 
-	esfera2.SetAtributos(-2, 10, 5, 15, 0, -9.81, 1.5, 50, 50);
-	esfera2.SetColor(255, 255, 0);
+	//esfera2.SetAtributos(-2, 10, 5, 15, 0, -9.81, 1.5, 50, 50);
+	//esfera2.SetColor(255, 255, 0);
 	
 	caja.Inicializa();
 
@@ -32,25 +32,17 @@ void Mundo::Inicializa()
 	hombre.SetAtributos(0, 0, 0, 0, 0, 0, 2);
 	hombre.SetColor(0, 0, 255);
 
-	disparo.SetAtributos(0, 0, 0, 0, 0, 9.81,0.1, 50, 50);
-	disparo.SetColor(255, 255, 0);
+	//disparo.SetAtributos(0, 0, 0, 0, 0, 9.81,0.1, 50, 50);
+	//disparo.SetColor(255, 255, 0);
 
 	bonus.SetAtributos(3, 1, 0, 0, 0, 0, 2);
 
 	
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 6; i++)
 	{
 		// Se inicilizan las esferas de forma dinamica con el operador new
 		Esfera* aux = new Esfera(0.75+i*0.25, i+2, i+2, i, i);
-				
-		//aux->SetAtributos(i, i + 1, i, i, 0, -9.81, 0.75 + i * 0.25, 50, 50);
-		
-		////// No funciona porque me falta un SetStack y SetSlices /////
-		/*aux->SetPos(i, 1 + i);
-		aux->SetVel(i, i);
-		aux->SetRadius(0.75+ i * 0.25);
-		aux->SetAcel(0, -9.81);*/ 
-		//aux->SetColor(255, 0, 255);
+
 		esferas.agregar(aux);
 	}
 
@@ -66,15 +58,15 @@ void Mundo::Dibuja()
 			0.0, 1.0, 0.0);      // definimos hacia arriba (eje Y)    
 
 
-	esfera.Dibuja();
-	esfera2.Dibuja();
+	//esfera.Dibuja();
+	//esfera2.Dibuja();
 	
 	caja.Dibuja();
 
 	
 	hombre.Dibuja();
 
-	disparo.Dibuja();
+	//disparo.Dibuja();
 
 	bonus.Dibuja();
 
@@ -101,9 +93,9 @@ void Mundo::RotarOjo()
 void Mundo::Mueve()
 {
 	//objectoMovil.Mueve(0.025f);
-	disparo.Mueve(0.025f);	
-	esfera.Mueve(0.025f);
-	esfera2.Mueve(0.025f);
+	//disparo.Mueve(0.025f);	
+	//esfera.Mueve(0.025f);
+	//esfera2.Mueve(0.025f);
 	bonus.Mueve(0.025f);
 	hombre.Mueve(0.025f);
 	esferas.Mueve(0.025f);
@@ -114,9 +106,9 @@ void Mundo::Mueve()
 	
 	Interaccion::rebote(esfera, caja);
 
-	Interaccion::rebote(esfera2, caja);
+	//Interaccion::rebote(esfera2, caja);
 
-	Interaccion::rebote(esfera, esfera2);
+	//Interaccion::rebote(esfera, esfera2);
 
 	esferas.Rebote(caja);
 	esferas.Rebote();
@@ -130,14 +122,14 @@ void Mundo::Mueve()
 		impacto = true;
 	}
 	
-	/*Esfera* auxd = esferas.colision(disparoPulsante);
+	Esfera* auxd = esferas.colision(disparoPulsante);
 	if (auxd != 0)
 	{
 		esferas.Eliminar(auxd);
-	}*/
+	}
 
 	Interaccion::rebote(disparoPulsante, caja);
-	Interaccion::rebote(disparo, caja);
+	//Interaccion::rebote(disparo, caja);
 
 	
 	esferaPulsante.Mueve(0.025f);
@@ -147,37 +139,40 @@ void Mundo::Mueve()
 		esferas.Rebote(esferaPulsante);
 	}
 
-	/*for (int i = 0; i < esferas.GetNumero(); i++)
+
+	for (int i = 0; i < esferas.GetNumero(); i++)
 	{
-		if (esferas.Rebote(disparoPulsante, i))
+		for (int j = 0; j < disparos.GetNumero(); j++)
 		{
-			/////////////////// ERROR esferas[i] ////////////////
-			Esfera* e = esferas[i]->dividir();
-			if (e == 0) //no division
-				esferas.Eliminar(esferas[i]);
-			else
-				esferas.agregar(e);
-			disparoPulsante.SetPos(0, 0);
-			disparoPulsante.SetVel(0, 10);
-			//ETSIDI::play("sonidos/impacto.wav");
-			break;
-		}*/
-		/*
-		if (Interaccion::colision(disparoPulsante, *esferas[i]))
-		{
-			Esfera* e = esferas[i]->dividir();
-			if (e == 0) //no division
-				esferas.eliminar(esferas[i]);
-			else
-				esferas.agregar(e);
-			disparo_especial.setPos(0, 0);
-			disparo_especial.setVel(0, 10);
-			ETSIDI::play("sonidos/impacto.wav");
-			break;
+			if (Interaccion::colision(*disparos[j], *esferas[i]))
+			{
+				Esfera* e = esferas[i]->dividir();
+				if (e == 0)
+					esferas.Eliminar(esferas[i]);
+				else
+					esferas.agregar(e);
+
+				disparos.Eliminar(disparos[j]);
+
+				//ETSIDI::play("sonidos/impacto.wav");
+				break;
+			}
 		}
-	}*/
+	}
 
+}
 
+void Mundo::TeclaEspecial(unsigned char key)
+{
+	switch (key)
+	{
+	case GLUT_KEY_LEFT:
+		hombre.SetVel(-5.0f, 0.0f);
+		break;
+	case GLUT_KEY_RIGHT:
+		hombre.SetVel(5.0f, 0.0f);
+		break;
+	}
 }
 
 void Mundo::Tecla(unsigned char key)
@@ -209,6 +204,50 @@ bool Mundo::GetImpacto()
 	else
 		return false;
 }
+
+
+/*bool Mundo::CargarNivel()
+{
+	nivel++;
+	hombre.SetPos(0, 0);
+	esferas.destruirContenido();
+	disparos.destruirContenido();
+
+	if (nivel == 1)
+	{
+		plataforma.setPos(-5.0f, 9.0f, 5.0f, 9.0f);
+		Esfera* e1 = new Esfera(1.5f, 2, 4, 5, 15);
+		e1->setColor(0, 0, 255);
+		esferas.agregar(e1); //esfera
+	}
+	if (nivel == 2)
+	{
+		plataforma.setPos(-3.0f, 6.0f, 3.0f, 6.0f);
+		plataforma.setColor(255, 0, 0);
+		EsferaPulsante* e3 = new EsferaPulsante;
+		e3->setPos(0, 12);
+		e3->setVel(5, 3);
+		esferas.agregar(e3);
+	}
+	if (nivel == 3)
+	{
+		plataforma.setPos(-10.0f, 12.0f, 4.0f, 10.0f);
+		plataforma.setColor(255, 0, 255);
+		for (int i = 0; i < 6; i++)
+		{
+			Esfera* aux = new Esfera(1.5, -5 + i, 13, i, 5);
+			aux->setColor(i * 40, 0, 255 - i * 40);
+			esferas.agregar(aux);
+		}
+	}
+	if (nivel <= 3)
+		return true;
+
+	if (nivel > 3)
+		return false;
+
+
+}*/
 
 
 

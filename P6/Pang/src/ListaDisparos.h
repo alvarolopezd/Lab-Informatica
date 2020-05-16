@@ -19,5 +19,12 @@ public:
 	void Dibuja();
 	void Mueve(float t);
 	void Rebote(Caja caja);
+	int GetNumero();
+
+	void Eliminar(Disparo* d);
+	void Eliminar(int index);
+	void DestruirContenido();
+
+	Disparo* operator[](int index);
 
 };

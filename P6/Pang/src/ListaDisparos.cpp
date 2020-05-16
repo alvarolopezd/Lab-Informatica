@@ -47,5 +47,56 @@ void ListaDisparos::Rebote(Caja caja)
 	for (int i = 0; i < numero; i++)
 	{
 		Interaccion::rebote(*(lista[i]), caja);
+
 	}
+}
+
+int ListaDisparos::GetNumero()
+{
+	return numero;
+}
+
+void ListaDisparos::Eliminar(Disparo* d)
+{
+	for (int i = 0; i < numero; i++)
+	{
+		if (lista[i] == d)
+			Eliminar(i);
+		return;
+	}
+
+}
+void ListaDisparos::Eliminar(int index)
+{
+	if ((index < 0) || (index >= numero))
+	{
+		return;
+	}
+	delete lista[index];
+	numero--;
+	for (int i = index; i < numero; i++)
+	{
+		lista[i] = lista[i + 1];
+	}
+
+}
+void ListaDisparos::DestruirContenido()
+{
+	for (int i = 0; i < numero; i++)
+	{
+		delete lista[i];
+	}
+	numero = 0;
+
+}
+
+
+Disparo* ListaDisparos::operator [](int i)
+{
+	if (i >= numero)
+		i = numero - 1;
+	if (i < 0)
+		i = 0;
+
+	return lista[i];
 }

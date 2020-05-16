@@ -11,7 +11,7 @@
 CoordinadorPang::CoordinadorPang()
 {
 	estado = INICIO;
-	mundo.Inicializa();
+	//mundo.Inicializa();
 }
 CoordinadorPang::~CoordinadorPang()
 {
@@ -32,7 +32,7 @@ void CoordinadorPang::Tecla(unsigned char key)
 			mundo.Inicializa();
 			estado = JUEGO;
 		}
-		
+		//if(key=='s') exit(0);
 	}
 	//JUEGO 
 	else if (estado == JUEGO)
@@ -91,19 +91,22 @@ void CoordinadorPang::Dibuja()
 		ETSIDI::setTextColor(1, 1, 0);
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
 		ETSIDI::printxy("Pang 1.1", -5, 8);
+		
 		ETSIDI::setTextColor(1, 1, 1);
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 12);
 		ETSIDI::printxy("PULSE LA TECLA -E- PARA EMPEZAR", -5, 7);
 		ETSIDI::printxy("PULSE LA TECLA -S- PARA SALIR", -5, 6);
-		ETSIDI::printxy("Hernando & Rodriguez-Losada", 2, 1);
+		ETSIDI::printxy("Alvaro Lopez", 2, 1);
 	}
+	
 	// JUEGO 
 	else if (estado == JUEGO)
 		mundo.Dibuja();
+	
 	// GAMEOVER
 	else if (estado == GAMEOVER)
 	{
-		//mundo.Dibuja();
+		mundo.Dibuja();
 		ETSIDI::setTextColor(1, 0, 0);
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
 		ETSIDI::printxy("GAMEOVER: Has perdido", -5, 10);
@@ -112,7 +115,7 @@ void CoordinadorPang::Dibuja()
 	// FIN 
 	else if (estado == FIN)
 	{
-		//mundo.Dibuja();
+		mundo.Dibuja();
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
 		ETSIDI::printxy("ENHORABUENA, ¡Has triunfado!", -5, 10);
 		ETSIDI::printxy("Pulsa -C- para continuar", -5, 9);
@@ -120,7 +123,7 @@ void CoordinadorPang::Dibuja()
 	// PAUSA 
 	else if (estado == PAUSA)
 	{
-		//mundo.Dibuja();
+		mundo.Dibuja();
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
 		ETSIDI::printxy("PAUSA", -5, 10);
 		ETSIDI::printxy("Pulsa -C- para continuar", -5, 9);

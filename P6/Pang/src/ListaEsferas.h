@@ -45,5 +45,7 @@ public:
 	int GetNumero() {
 		return numero;
 	}
+
+	Esfera* operator[](int index);
 		
 };
