@@ -92,13 +92,14 @@ void CoordinadorPang::Dibuja()
 
 		ETSIDI::setTextColor(1, 1, 0);
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 16);
-		ETSIDI::printxy("Pang 1.1", -5, 8);
+		ETSIDI::printxy("Pang 1.1", -5, 12);
 		
 		ETSIDI::setTextColor(1, 1, 1);
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 12);
-		ETSIDI::printxy("PULSE LA TECLA -E- PARA EMPEZAR", -5, 7);
-		ETSIDI::printxy("PULSE LA TECLA -S- PARA SALIR", -5, 6);
-		//ETSIDI::printxy("PULSE LA TECLA -A- PARA SALIR", -5, 6);
+		ETSIDI::printxy("PULSE LA TECLA -E- PARA EMPEZAR", -5, 9);
+		ETSIDI::printxy("PULSE LA TECLA -S- PARA SALIR", -5, 8);
+		ETSIDI::printxy("PULSE LA TECLA -A- Y -W- PARA MOVERSE", -5, 7);
+		ETSIDI::printxy("Y 'ESPACIO' PARA DISPARAR", -5, 6);
 		ETSIDI::printxy("Alvaro Lopez", 2, 1);
 	}
 	

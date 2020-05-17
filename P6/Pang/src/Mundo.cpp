@@ -43,7 +43,7 @@ void Mundo::Inicializa()
 	//disparo.SetAtributos(0, 0, 0, 0, 0, 9.81,0.1, 50, 50);
 	//disparo.SetColor(255, 255, 0);
 
-	bonus.SetAtributos(3, 1, 0, 0, 0, 0, 0.5);
+	bonus.SetAtributos(3, 7, 0, 0, 0, -9.81, 0.5);
 
 	
 	for (int i = 0; i < 3; i++)
@@ -124,7 +124,7 @@ void Mundo::Mueve()
 	esferas.Rebote(plataforma);
 
 	disparos.Rebote(caja);
-	disparos.Rebote(plataforma);
+	//disparos.Rebote(plataforma);
 
 	Esfera* aux = esferas.colision(hombre);
 	if (aux != 0)
@@ -133,11 +133,11 @@ void Mundo::Mueve()
 		impacto = true;
 	}
 	
-	/*Esfera* auxd = esferas.colision(disparoPulsante);
+	Esfera* auxd = esferas.colision(disparoPulsante);
 	if (auxd != 0)
 	{
 		esferas.Eliminar(auxd);
-	}*/
+	}
 
 	Interaccion::rebote(disparoPulsante, caja);
 	//Interaccion::rebote(disparo, caja);
