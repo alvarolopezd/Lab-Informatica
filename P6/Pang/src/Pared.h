@@ -15,6 +15,7 @@ public:
 	virtual ~Pared();
 	void SetAtributos(float _xlim1, float _ylim1, float _xlim2, float _ylim2);
 	void SetColor(unsigned char _rojo, unsigned char _verde, unsigned char _azul);
+	void SetPos(float _xlim1, float _ylim1, float _xlim2, float _ylim2);
 	float GetXLim1();
 	float GetYLim1();
 	float GetXLim2();

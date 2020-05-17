@@ -30,6 +30,7 @@ public:
 	void Rebote();
 	void Rebote(Esfera esfera);
 	bool Rebote(Disparo disparo, int i);
+	void Rebote(Pared p);
 
 	//DESTRUCTOR
 	void destruirContenido();

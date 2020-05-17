@@ -27,6 +27,11 @@ void Pared::SetColor(unsigned char _rojo, unsigned char _verde, unsigned char _a
 	verde = _verde;
 	azul = _azul;
 }
+void Pared::SetPos(float _xlim1, float _ylim1, float _xlim2, float _ylim2)
+{
+	limite1.SetCoordenadas(_xlim1, _ylim1);
+	limite2.SetCoordenadas(_xlim2, _ylim2);
+}
 
 float Pared::GetXLim1()
 {

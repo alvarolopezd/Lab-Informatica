@@ -19,6 +19,8 @@ void Mundo::Inicializa()
 	x_ojo = 0;
 	y_ojo = 7.5;
 	z_ojo = 20;
+	nivel = 0;
+	CargarNivel();
 
 	//esfera.SetAtributos(2, 8, -5, 15, 0, -9.81, 1, 50, 50);
 	//esfera.SetColor(255, 0, 0);
@@ -27,6 +29,9 @@ void Mundo::Inicializa()
 	//esfera2.SetColor(255, 255, 0);
 	
 	caja.Inicializa();
+
+	plataforma.SetColor(255, 255, 255);
+	plataforma.SetAtributos(-2.5, 7, 2.5, 7);
 
 		
 	hombre.SetAtributos(0, 0, 0, 0, 0, 0, 2);
@@ -44,7 +49,7 @@ void Mundo::Inicializa()
 	for (int i = 0; i < 3; i++)
 	{
 		// Se inicilizan las esferas de forma dinamica con el operador new
-		Esfera* aux = new Esfera(0.75+i*0.25, i+2, i+2, i, i);
+		Esfera* aux = new Esfera(0.75+i*0.25, i+2, i+2, i+5, i+2);
 
 		esferas.agregar(aux);
 	}
@@ -65,7 +70,7 @@ void Mundo::Dibuja()
 	//esfera2.Dibuja();
 	
 	caja.Dibuja();
-
+	plataforma.Dibuja();
 	
 	hombre.Dibuja();
 
@@ -106,8 +111,9 @@ void Mundo::Mueve()
 	disparoPulsante.Mueve(0.025f);
 
 	Interaccion::rebote(hombre, caja);
+	//Interaccion::rebote(hombre, plataforma);
 	
-	Interaccion::rebote(esfera, caja);
+	//Interaccion::rebote(esfera, caja);
 
 	//Interaccion::rebote(esfera2, caja);
 
@@ -115,8 +121,10 @@ void Mundo::Mueve()
 
 	esferas.Rebote(caja);
 	esferas.Rebote();
+	esferas.Rebote(plataforma);
 
 	disparos.Rebote(caja);
+	disparos.Rebote(plataforma);
 
 	Esfera* aux = esferas.colision(hombre);
 	if (aux != 0)
@@ -137,6 +145,7 @@ void Mundo::Mueve()
 	
 	esferaPulsante.Mueve(0.025f);
 	Interaccion::rebote(esferaPulsante, caja);
+	Interaccion::rebote(esferaPulsante, plataforma);
 	for (int i = 0; i<esferas.GetNumero(); i++)
 	{
 		esferas.Rebote(esferaPulsante);
@@ -151,11 +160,11 @@ void Mundo::Mueve()
 			{
 				Esfera* e = esferas[i]->dividir();
 				if (e == 0)
-					esferas.Eliminar(esferas[i]);
+					esferas.Eliminar(i);
 				else
 					esferas.agregar(e);
 
-				disparos.Eliminar(disparos[j]);
+				disparos.Eliminar(i);
 
 				//ETSIDI::play("sonidos/impacto.wav");
 				//break;
@@ -210,7 +219,7 @@ bool Mundo::GetImpacto()
 		return false;
 }
 
-/*
+
 bool Mundo::CargarNivel()
 {
 	nivel++;
@@ -220,15 +229,15 @@ bool Mundo::CargarNivel()
 
 	if (nivel == 1)
 	{
-		plataforma.setPos(-5.0f, 9.0f, 5.0f, 9.0f);
+		plataforma.SetPos(-5.0f, 9.0f, 5.0f, 9.0f);
 		Esfera* e1 = new Esfera(1.5f, 2, 4, 5, 15);
 		e1->SetColor(0, 0, 255);
 		esferas.agregar(e1); //esfera
 	}
 	if (nivel == 2)
 	{
-		plataforma.setPos(-3.0f, 6.0f, 3.0f, 6.0f);
-		plataforma.setColor(255, 0, 0);
+		plataforma.SetPos(-3.0f, 6.0f, 3.0f, 6.0f);
+		plataforma.SetColor(255, 0, 0);
 		EsferaPulsante* e3 = new EsferaPulsante;
 		e3->SetPos(0, 12);
 		e3->SetVel(5, 3);
@@ -236,8 +245,8 @@ bool Mundo::CargarNivel()
 	}
 	if (nivel == 3)
 	{
-		plataforma.setPos(-10.0f, 12.0f, 4.0f, 10.0f);
-		plataforma.setColor(255, 0, 255);
+		plataforma.SetPos(-10.0f, 12.0f, 4.0f, 10.0f);
+		plataforma.SetColor(255, 0, 255);
 		for (int i = 0; i < 6; i++)
 		{
 			Esfera* aux = new Esfera(1.5, -5 + i, 13, i, 5);
@@ -248,11 +257,11 @@ bool Mundo::CargarNivel()
 	if (nivel <= 3)
 		return true;
 
-	if (nivel > 3)
-		return false;
+	//if (nivel > 3)
+	return false;
 
 
-}*/
+}
 
 
 

@@ -4,7 +4,7 @@
 class Caja
 {
 private:
-	Pared suelo, techo, pared_izq, pared_dcha, plataforma;
+	Pared suelo, techo, pared_izq, pared_dcha;
 	friend class Interaccion;
 public:
 	void Inicializa();

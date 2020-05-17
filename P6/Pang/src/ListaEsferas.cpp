@@ -81,6 +81,15 @@ bool ListaEsferas::Rebote(Disparo disparo, int i)
 	else return false;
 }
 
+void ListaEsferas::Rebote(Pared p)
+{
+	for (int i = 0; i < numero; i++)
+	{
+		Interaccion::rebote(*(lista[i]), p);
+
+	}
+}
+
 
 void ListaEsferas::destruirContenido()
 {
@@ -123,8 +132,8 @@ Esfera* ListaEsferas::colision(Hombre &h)
 		{
 			return lista[i];
 		}
-		return 0;
 	}
+	return 0;
 }
 
 /*Esfera* ListaEsferas::colision(Disparo d)

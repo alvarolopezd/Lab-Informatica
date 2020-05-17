@@ -1,6 +1,6 @@
 #pragma once
 
-#define MAX_DISPAROS 100
+#define MAX_DISPAROS 10
 #include "Disparo.h"
 #include "Caja.h"
 
@@ -19,6 +19,7 @@ public:
 	void Dibuja();
 	void Mueve(float t);
 	void Rebote(Caja caja);
+	void Rebote(Pared p);
 	int GetNumero();
 
 	void Eliminar(Disparo* d);

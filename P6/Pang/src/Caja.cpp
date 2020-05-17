@@ -21,8 +21,7 @@ void Caja::Inicializa()
 	techo.SetAtributos(10, 15, -10, 15);
 	suelo.SetColor(0, 225, 250);
 	suelo.SetAtributos(-10, 0, 10, 0);
-	plataforma.SetColor(255, 255, 255);
-	plataforma.SetAtributos(-2.5, 7, 2.5, 7);
+
 }
 
 
@@ -32,7 +31,6 @@ void Caja::Dibuja()
 	techo.Dibuja();
 	pared_dcha.Dibuja();
 	pared_izq.Dibuja();
-	plataforma.Dibuja();
 }
 
 
@@ -53,8 +51,8 @@ Pared Caja::GetTecho() {
 	return techo;
 }
 
-Pared Caja::GetPlataforma()
+/*Pared Caja::GetPlataforma()
 {
 	return plataforma;
-}
+}*/
 

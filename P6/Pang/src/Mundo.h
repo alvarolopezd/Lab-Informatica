@@ -29,6 +29,7 @@ private:
 	DisparoPulsante disparoPulsante;
 	Bonus bonus;	
 	ObjetoMovil objectoMovil;
+	Pared plataforma;
 public:	
 	virtual ~Mundo();
 	void Inicializa();
@@ -40,7 +41,7 @@ public:
 	int GetNumEsferas();
 	bool GetImpacto();
 
-	//bool CargarNivel();
+	bool CargarNivel();
 
 
 };

@@ -32,7 +32,8 @@ void CoordinadorPang::Tecla(unsigned char key)
 			mundo.Inicializa();
 			estado = JUEGO;
 		}
-		//if(key=='s') exit(0);
+		if(key=='s') 
+			exit(0);
 	}
 	//JUEGO 
 	else if (estado == JUEGO)
@@ -70,7 +71,8 @@ void CoordinadorPang::Mueve()
 		mundo.Mueve();
 		if (mundo.GetNumEsferas() == 0)
 		{
-			estado = FIN;
+			if(!mundo.CargarNivel())
+				estado = FIN;
 		}
 		if (mundo.GetImpacto())
 		{
@@ -96,6 +98,7 @@ void CoordinadorPang::Dibuja()
 		ETSIDI::setFont("fuentes/Bitwise.ttf", 12);
 		ETSIDI::printxy("PULSE LA TECLA -E- PARA EMPEZAR", -5, 7);
 		ETSIDI::printxy("PULSE LA TECLA -S- PARA SALIR", -5, 6);
+		//ETSIDI::printxy("PULSE LA TECLA -A- PARA SALIR", -5, 6);
 		ETSIDI::printxy("Alvaro Lopez", 2, 1);
 	}
 	
@@ -112,6 +115,7 @@ void CoordinadorPang::Dibuja()
 		ETSIDI::printxy("GAMEOVER: Has perdido", -5, 10);
 		ETSIDI::printxy("Pulsa -C- para continuar", -5, 5);
 	}
+	
 	// FIN 
 	else if (estado == FIN)
 	{
@@ -120,6 +124,7 @@ void CoordinadorPang::Dibuja()
 		ETSIDI::printxy("ENHORABUENA, ¡Has triunfado!", -5, 10);
 		ETSIDI::printxy("Pulsa -C- para continuar", -5, 9);
 	}
+	
 	// PAUSA 
 	else if (estado == PAUSA)
 	{

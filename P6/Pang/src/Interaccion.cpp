@@ -45,7 +45,6 @@ void Interaccion::rebote(Esfera& e, Caja c)
 	Interaccion::rebote(e, c.GetTecho());
 	Interaccion::rebote(e, c.GetParedDer());
 	Interaccion::rebote(e, c.GetParedIzq());
-	Interaccion::rebote(e, c.GetPlataforma());
 }
 
 
@@ -178,7 +177,6 @@ void Interaccion::rebote(Disparo& d, Caja c)
 	Interaccion::rebote(d, c.GetTecho());
 	Interaccion::rebote(d, c.GetParedDer());
 	Interaccion::rebote(d, c.GetParedIzq());
-	Interaccion::rebote(d, c.GetPlataforma());
 }
 
 void Interaccion::rebote(DisparoPulsante& d, Caja c)
@@ -187,7 +185,6 @@ void Interaccion::rebote(DisparoPulsante& d, Caja c)
 	Interaccion::rebote(d, c.GetTecho());
 	Interaccion::rebote(d, c.GetParedDer());
 	Interaccion::rebote(d, c.GetParedIzq());
-	Interaccion::rebote(d, c.GetPlataforma());
 }
 
 

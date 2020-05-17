@@ -51,6 +51,15 @@ void ListaDisparos::Rebote(Caja caja)
 	}
 }
 
+void ListaDisparos::Rebote(Pared p)
+{
+	for (int i = 0; i < numero; i++)
+	{
+		Interaccion::rebote(*(lista[i]),p);
+
+	}
+}
+
 int ListaDisparos::GetNumero()
 {
 	return numero;
