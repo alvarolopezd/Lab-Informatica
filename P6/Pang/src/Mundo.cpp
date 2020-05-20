@@ -136,7 +136,8 @@ void Mundo::Mueve()
 	Esfera* auxd = esferas.colision(disparoPulsante);
 	if (auxd != 0)
 	{
-		esferas.Eliminar(auxd);
+		//esferas.Eliminar(auxd);
+
 	}
 
 	Interaccion::rebote(disparoPulsante, caja);
